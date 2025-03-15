@@ -1,0 +1,4 @@
+baseURL = 'https://alejandro.earth/'
+languageCode = 'es-cl'
+title = 'My New Hugo Site'
+theme="hugo-book"
