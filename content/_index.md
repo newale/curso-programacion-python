@@ -29,14 +29,12 @@ Este curso te permitirá:
 
 ## Modulos temáticos
 
-- 📅 Módulo 1: **Introducción a Python**
-- 📅 Módulo 2: **Funciones y Variables**
-- 📅 Módulo 3: **Estructuras de Control - Condicionales**
-- 📅 Módulo 4: **Estructuras de Control - Bucles**
-- 📅 Módulo 5: **Manejo de Errores y Excepciones**
-- 📅 Módulo 6: **Bibliotecas en Python**
-- 📅 Módulo 7: **Pruebas Unitarias y Debugging**
-- 📅 Módulo 8: **Manejo de Archivos (File I/O)**
-- 📅 Módulo 9: **Expresiones Regulares (Regex)**
-- 📅 Módulo 10: **Programación Orientada a Objetos (POO)**
-
+- 📅 Semana 1: **Funciones y Variables**
+- 📅 Semana 2: **Estructuras de Control - Condicionales**
+- 📅 Semana 3: **Estructuras de Control - Bucles**
+- 📅 Semana 4: **Manejo de Errores y Excepciones**
+- 📅 Semana 5: **Bibliotecas en Python**
+- 📅 Semana 6: **Pruebas Unitarias y Debugging**
+- 📅 Semana 7: **Manejo de Archivos (File I/O)**
+- 📅 Semana 8: **Expresiones Regulares (Regex)**
+- 📅 Semana 9: **Programación Orientada a Objetos (POO)**
