@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es-cl" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Semana 3: Bucles
+  #
+
+
+  📌 Contenido
+  #
+
+
+Bucles (while, for)
+Mejorando el input del usuario
+Listas (list)
+Longitud de listas (len)
+Diccionarios (dict)
+Generando patrones (Mario)
+Resumen
+
+
+
+  🔹 Bucles (Loops)
+  #
+
+Un bucle permite ejecutar una tarea repetidamente sin escribir el mismo código muchas veces.
+
+  📍 Ejemplo sin bucles:
+  #
+
+print(&#34;meow&#34;)
+print(&#34;meow&#34;)
+print(&#34;meow&#34;)
+💡 Problema: No es escalable si queremos imprimir &ldquo;meow&rdquo; 500 veces.
+
+
+  🔹 Bucles while
+  #
+
+Un while repite un bloque de código mientras una condición sea True.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://alejandro.earth/curso-programacion-python/docs/course/s3-control-bucles/">
+  <meta property="og:site_name" content="Programación en Python">
+  <meta property="og:title" content="Semana 3: Bucles">
+  <meta property="og:description" content="Semana 3: Bucles # 📌 Contenido # Bucles (while, for) Mejorando el input del usuario Listas (list) Longitud de listas (len) Diccionarios (dict) Generando patrones (Mario) Resumen 🔹 Bucles (Loops) # Un bucle permite ejecutar una tarea repetidamente sin escribir el mismo código muchas veces.
+📍 Ejemplo sin bucles: # print(&#34;meow&#34;) print(&#34;meow&#34;) print(&#34;meow&#34;) 💡 Problema: No es escalable si queremos imprimir “meow” 500 veces.
+🔹 Bucles while # Un while repite un bloque de código mientras una condición sea True.">
+  <meta property="og:locale" content="es_cl">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Semana 3: Bucles | Programación en Python</title>
+<link rel="icon" href="/curso-programacion-python/favicon.png" >
+<link rel="manifest" href="/curso-programacion-python/manifest.json">
+<link rel="canonical" href="https://alejandro.earth/curso-programacion-python/docs/course/s3-control-bucles/">
+<link rel="stylesheet" href="/curso-programacion-python/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css" integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin="anonymous">
+  <script defer src="/curso-programacion-python/fuse.min.js"></script>
+  <script defer src="/curso-programacion-python/en.search.min.8e3c8687ba0706cfc7b01931911e7c95b103f7176e4707b9f67f40852d71ba7a.js" integrity="sha256-jjyGh7oHBs/HsBkxkR58lbED9xduRwe59n9AhS1xuno=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/curso-programacion-python/"><span>Programación en Python</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/como-usar-curso/" class="">Conóce el curso</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s1-variables-funciones/" class="">Semana 1: Variables y funciones</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s2-control-condicionales/" class="">Semana 2: Condicionales</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s3-control-bucles/" class="active">Semana 3: Bucles</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s4-manejo-errores/" class="">Semana 4: Manejo de errores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s5-bibliotecas-python/" class="">Semana 5: Bibliotecas en python</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s6-pruebas-debugging/" class="">Semana 6: Pruebas unitarias y debugging</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s7-manejo-archivos/" class="">Semana 7: Manejo de archivos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s8-expresiones-regulares/" class="">Semana 8: Expresiones regulares</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s9-programacion-objetos/" class="">Semana 9: Programación orientada a objetos</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/curso-programacion-python/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/curso-programacion-python/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Semana 3: Bucles</h3>
+
+  <label for="toc-control">
+    
+    <img src="/curso-programacion-python/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-bucles-loops">🔹 Bucles (<code>Loops</code>)</a>
+      <ul>
+        <li><a href="#-ejemplo-sin-bucles">📍 Ejemplo sin bucles:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-bucles-while">🔹 Bucles <code>while</code></a></li>
+    <li><a href="#-bucles-for">🔹 Bucles <code>for</code></a>
+      <ul>
+        <li><a href="#-uso-del-guion-bajo-_">📍 Uso del guion bajo <code>_</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-mejorando-el-input-del-usuario">🔹 Mejorando el Input del Usuario</a></li>
+    <li><a href="#-uso-de-funciones">🔹 Uso de Funciones</a></li>
+    <li><a href="#-listas-list">🔹 Listas (<code>list</code>)</a>
+      <ul>
+        <li><a href="#-recorriendo-una-lista-con-for">📍 Recorriendo una lista con <code>for</code></a></li>
+        <li><a href="#-uso-de-len">📍 Uso de <code>len()</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-diccionarios-dict">🔹 Diccionarios (<code>dict</code>)</a>
+      <ul>
+        <li><a href="#-recorriendo-un-diccionario">📍 Recorriendo un diccionario</a></li>
+        <li><a href="#-diccionarios-dentro-de-listas">📍 Diccionarios dentro de listas</a></li>
+      </ul>
+    </li>
+    <li><a href="#-generando-patrones-mario">🔹 Generando Patrones (<code>Mario</code>)</a>
+      <ul>
+        <li><a href="#-columna-de-3-bloques">📍 Columna de 3 bloques</a></li>
+        <li><a href="#-cuadrado-de-3x3">📍 Cuadrado de 3x3</a></li>
+        <li><a href="#-refactorizando-con-funciones">📍 Refactorizando con funciones</a></li>
+      </ul>
+    </li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="semana-3-bucles">
+  Semana 3: Bucles
+  <a class="anchor" href="#semana-3-bucles">#</a>
+</h1>
+<h2 id="-contenido">
+  📌 Contenido
+  <a class="anchor" href="#-contenido">#</a>
+</h2>
+<ul>
+<li>Bucles (<code>while</code>, <code>for</code>)</li>
+<li>Mejorando el input del usuario</li>
+<li>Listas (<code>list</code>)</li>
+<li>Longitud de listas (<code>len</code>)</li>
+<li>Diccionarios (<code>dict</code>)</li>
+<li>Generando patrones (<code>Mario</code>)</li>
+<li>Resumen</li>
+</ul>
+<hr>
+<h2 id="-bucles-loops">
+  🔹 Bucles (<code>Loops</code>)
+  <a class="anchor" href="#-bucles-loops">#</a>
+</h2>
+<p>Un <strong>bucle</strong> permite ejecutar una tarea repetidamente sin escribir el mismo código muchas veces.</p>
+<h3 id="-ejemplo-sin-bucles">
+  📍 Ejemplo sin bucles:
+  <a class="anchor" href="#-ejemplo-sin-bucles">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;meow&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;meow&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;meow&#34;</span>)
+</span></span></code></pre></div><p>💡 <strong>Problema</strong>: No es escalable si queremos imprimir &ldquo;meow&rdquo; 500 veces.</p>
+<hr>
+<h2 id="-bucles-while">
+  🔹 Bucles <code>while</code>
+  <a class="anchor" href="#-bucles-while">#</a>
+</h2>
+<p>Un <code>while</code> repite un bloque de código mientras una condición sea <strong>True</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;meow&#34;</span>)
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>✅ <strong>Explicación:</strong></p>
+<ul>
+<li><code>i = 0</code>: Inicializa el contador.</li>
+<li><code>while i &lt; 3</code>: Continúa ejecutando hasta que <code>i</code> alcance <code>3</code>.</li>
+<li><code>i += 1</code>: Incrementa <code>i</code> en cada iteración.</li>
+</ul>
+<p>⚠ <strong>Error común</strong>: Bucle infinito si olvidamos <code>i += 1</code>.</p>
+<hr>
+<h2 id="-bucles-for">
+  🔹 Bucles <code>for</code>
+  <a class="anchor" href="#-bucles-for">#</a>
+</h2>
+<p>Un <code>for</code> es ideal para recorrer una secuencia de valores.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;meow&#34;</span>)
+</span></span></code></pre></div><p>🔹 <strong>Ventajas</strong>:</p>
+<ul>
+<li><code>range(3)</code> genera los valores <code>0, 1, 2</code> automáticamente.</li>
+<li>Evita errores con el contador (<code>i</code> se maneja internamente).</li>
+</ul>
+<h3 id="-uso-del-guion-bajo-_">
+  📍 Uso del guion bajo <code>_</code>
+  <a class="anchor" href="#-uso-del-guion-bajo-_">#</a>
+</h3>
+<p>Si no necesitamos <code>i</code>, usamos <code>_</code> para indicar que no lo usaremos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;meow&#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="-mejorando-el-input-del-usuario">
+  🔹 Mejorando el Input del Usuario
+  <a class="anchor" href="#-mejorando-el-input-del-usuario">#</a>
+</h2>
+<p>Podemos validar el input del usuario con un bucle <code>while</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s n? &#34;</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span></code></pre></div><p>✅ <strong>Explicación:</strong></p>
+<ul>
+<li><code>while True</code>: Crea un bucle infinito.</li>
+<li><code>if n &gt; 0</code>: Solo rompe el bucle si <code>n</code> es positivo.</li>
+</ul>
+<hr>
+<h2 id="-uso-de-funciones">
+  🔹 Uso de Funciones
+  <a class="anchor" href="#-uso-de-funciones">#</a>
+</h2>
+<p>Podemos organizar nuestro código con funciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    meow(get_number())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_number</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s n? &#34;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> n
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">meow</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;meow&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main()
+</span></span></code></pre></div><p>🔹 <strong>Ventajas</strong>:</p>
+<ul>
+<li><code>get_number()</code> maneja la validación.</li>
+<li><code>meow(n)</code> imprime <code>n</code> veces.</li>
+<li><code>main()</code> organiza la ejecución.</li>
+</ul>
+<hr>
+<h2 id="-listas-list">
+  🔹 Listas (<code>list</code>)
+  <a class="anchor" href="#-listas-list">#</a>
+</h2>
+<p>Las <strong>listas</strong> almacenan varios valores en una estructura ordenada.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>students <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;Hermione&#34;</span>, <span style="color:#e6db74">&#34;Harry&#34;</span>, <span style="color:#e6db74">&#34;Ron&#34;</span>]
+</span></span></code></pre></div><p>Podemos acceder a los elementos por su índice:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(students[<span style="color:#ae81ff">0</span>])  <span style="color:#75715e"># Hermione</span>
+</span></span><span style="display:flex;"><span>print(students[<span style="color:#ae81ff">1</span>])  <span style="color:#75715e"># Harry</span>
+</span></span><span style="display:flex;"><span>print(students[<span style="color:#ae81ff">2</span>])  <span style="color:#75715e"># Ron</span>
+</span></span></code></pre></div><h3 id="-recorriendo-una-lista-con-for">
+  📍 Recorriendo una lista con <code>for</code>
+  <a class="anchor" href="#-recorriendo-una-lista-con-for">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> student <span style="color:#f92672">in</span> students:
+</span></span><span style="display:flex;"><span>    print(student)
+</span></span></code></pre></div><p>✅ <strong>Ventaja</strong>: Evita repetir <code>print()</code> manualmente.</p>
+<h3 id="-uso-de-len">
+  📍 Uso de <code>len()</code>
+  <a class="anchor" href="#-uso-de-len">#</a>
+</h3>
+<p>Podemos obtener la longitud de una lista con <code>len()</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(students)):
+</span></span><span style="display:flex;"><span>    print(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, students[i])
+</span></span></code></pre></div><hr>
+<h2 id="-diccionarios-dict">
+  🔹 Diccionarios (<code>dict</code>)
+  <a class="anchor" href="#-diccionarios-dict">#</a>
+</h2>
+<p>Los <strong>diccionarios</strong> almacenan datos en formato <code>clave: valor</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>students <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Hermione&#34;</span>: <span style="color:#e6db74">&#34;Gryffindor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Harry&#34;</span>: <span style="color:#e6db74">&#34;Gryffindor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Ron&#34;</span>: <span style="color:#e6db74">&#34;Gryffindor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Draco&#34;</span>: <span style="color:#e6db74">&#34;Slytherin&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Podemos acceder a los valores por su clave:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(students[<span style="color:#e6db74">&#34;Hermione&#34;</span>])  <span style="color:#75715e"># Gryffindor</span>
+</span></span></code></pre></div><h3 id="-recorriendo-un-diccionario">
+  📍 Recorriendo un diccionario
+  <a class="anchor" href="#-recorriendo-un-diccionario">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> student <span style="color:#f92672">in</span> students:
+</span></span><span style="display:flex;"><span>    print(student, students[student], sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;, &#34;</span>)
+</span></span></code></pre></div><p>🔹 <strong>Salida esperada:</strong></p>
+<pre tabindex="0"><code>Hermione, Gryffindor
+Harry, Gryffindor
+Ron, Gryffindor
+Draco, Slytherin
+</code></pre><h3 id="-diccionarios-dentro-de-listas">
+  📍 Diccionarios dentro de listas
+  <a class="anchor" href="#-diccionarios-dentro-de-listas">#</a>
+</h3>
+<p>Podemos almacenar información más compleja:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>students <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Hermione&#34;</span>, <span style="color:#e6db74">&#34;house&#34;</span>: <span style="color:#e6db74">&#34;Gryffindor&#34;</span>, <span style="color:#e6db74">&#34;patronus&#34;</span>: <span style="color:#e6db74">&#34;Otter&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Harry&#34;</span>, <span style="color:#e6db74">&#34;house&#34;</span>: <span style="color:#e6db74">&#34;Gryffindor&#34;</span>, <span style="color:#e6db74">&#34;patronus&#34;</span>: <span style="color:#e6db74">&#34;Stag&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Ron&#34;</span>, <span style="color:#e6db74">&#34;house&#34;</span>: <span style="color:#e6db74">&#34;Gryffindor&#34;</span>, <span style="color:#e6db74">&#34;patronus&#34;</span>: <span style="color:#e6db74">&#34;Jack Russell terrier&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Draco&#34;</span>, <span style="color:#e6db74">&#34;house&#34;</span>: <span style="color:#e6db74">&#34;Slytherin&#34;</span>, <span style="color:#e6db74">&#34;patronus&#34;</span>: <span style="color:#66d9ef">None</span>},
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>🔹 <strong>Recorriendo la lista y accediendo a cada diccionario:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> student <span style="color:#f92672">in</span> students:
+</span></span><span style="display:flex;"><span>    print(student[<span style="color:#e6db74">&#34;name&#34;</span>], student[<span style="color:#e6db74">&#34;house&#34;</span>], student[<span style="color:#e6db74">&#34;patronus&#34;</span>], sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;, &#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="-generando-patrones-mario">
+  🔹 Generando Patrones (<code>Mario</code>)
+  <a class="anchor" href="#-generando-patrones-mario">#</a>
+</h2>
+<p>Podemos imprimir patrones con bucles anidados.</p>
+<h3 id="-columna-de-3-bloques">
+  📍 Columna de 3 bloques
+  <a class="anchor" href="#-columna-de-3-bloques">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;#&#34;</span>)
+</span></span></code></pre></div><h3 id="-cuadrado-de-3x3">
+  📍 Cuadrado de 3x3
+  <a class="anchor" href="#-cuadrado-de-3x3">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;#&#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    print()
+</span></span></code></pre></div><h3 id="-refactorizando-con-funciones">
+  📍 Refactorizando con funciones
+  <a class="anchor" href="#-refactorizando-con-funciones">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    print_square(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_square</span>(size):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(size):
+</span></span><span style="display:flex;"><span>        print_row(size)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_row</span>(width):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#f92672">*</span> width)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main()
+</span></span></code></pre></div><p>🔹 <strong>Ventajas</strong>:</p>
+<ul>
+<li><code>print_square(size)</code>: Genera un cuadrado de <code>size</code>x<code>size</code>.</li>
+<li><code>print_row(width)</code>: Imprime una fila de <code>width</code> caracteres.</li>
+</ul>
+<hr>
+<h2 id="-resumen">
+  📌 Resumen
+  <a class="anchor" href="#-resumen">#</a>
+</h2>
+<ul>
+<li>✔️ <strong><code>while</code></strong> y <strong><code>for</code></strong> permiten repetir tareas</li>
+<li>✔️ <strong>Validación de input</strong> con <code>while</code> mejora la interactividad.</li>
+<li>✔️ <strong>Listas (<code>list</code>)</strong> almacenan datos ordenados.</li>
+<li>✔️ <strong>Diccionarios (<code>dict</code>)</strong> almacenan datos en pares <code>clave: valor</code>.</li>
+<li>✔️ <strong>Bucles anidados</strong> generan patrones.</li>
+<li>✔️ <strong>Funciones</strong> ayudan a estructurar mejor el código.</li>
+</ul>
+<p>🚀 <strong>Ahora puedes trabajar con estructuras de datos y bucles en Python!</strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-bucles-loops">🔹 Bucles (<code>Loops</code>)</a>
+      <ul>
+        <li><a href="#-ejemplo-sin-bucles">📍 Ejemplo sin bucles:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-bucles-while">🔹 Bucles <code>while</code></a></li>
+    <li><a href="#-bucles-for">🔹 Bucles <code>for</code></a>
+      <ul>
+        <li><a href="#-uso-del-guion-bajo-_">📍 Uso del guion bajo <code>_</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-mejorando-el-input-del-usuario">🔹 Mejorando el Input del Usuario</a></li>
+    <li><a href="#-uso-de-funciones">🔹 Uso de Funciones</a></li>
+    <li><a href="#-listas-list">🔹 Listas (<code>list</code>)</a>
+      <ul>
+        <li><a href="#-recorriendo-una-lista-con-for">📍 Recorriendo una lista con <code>for</code></a></li>
+        <li><a href="#-uso-de-len">📍 Uso de <code>len()</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-diccionarios-dict">🔹 Diccionarios (<code>dict</code>)</a>
+      <ul>
+        <li><a href="#-recorriendo-un-diccionario">📍 Recorriendo un diccionario</a></li>
+        <li><a href="#-diccionarios-dentro-de-listas">📍 Diccionarios dentro de listas</a></li>
+      </ul>
+    </li>
+    <li><a href="#-generando-patrones-mario">🔹 Generando Patrones (<code>Mario</code>)</a>
+      <ul>
+        <li><a href="#-columna-de-3-bloques">📍 Columna de 3 bloques</a></li>
+        <li><a href="#-cuadrado-de-3x3">📍 Cuadrado de 3x3</a></li>
+        <li><a href="#-refactorizando-con-funciones">📍 Refactorizando con funciones</a></li>
+      </ul>
+    </li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

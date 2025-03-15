@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es-cl" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Semana 7: Manejo de archivos
+  #
+
+
+  📌 Contenido
+  #
+
+
+Manipulación de archivos en Python
+Uso de open para leer y escribir archivos
+Uso de with para manejar archivos
+Trabajo con archivos CSV
+Archivos binarios y PIL (manejo de imágenes)
+Resumen
+
+
+
+  🔹 File I/O (Entrada y Salida de Archivos)
+  #
+
+Hasta ahora, los datos ingresados en nuestros programas se pierden al finalizar la ejecución. Con File I/O, podemos leer y escribir archivos para almacenar información.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://alejandro.earth/curso-programacion-python/docs/course/s7-manejo-archivos/">
+  <meta property="og:site_name" content="Programación en Python">
+  <meta property="og:title" content="Semana 7: Manejo de archivos">
+  <meta property="og:description" content="Semana 7: Manejo de archivos # 📌 Contenido # Manipulación de archivos en Python Uso de open para leer y escribir archivos Uso de with para manejar archivos Trabajo con archivos CSV Archivos binarios y PIL (manejo de imágenes) Resumen 🔹 File I/O (Entrada y Salida de Archivos) # Hasta ahora, los datos ingresados en nuestros programas se pierden al finalizar la ejecución. Con File I/O, podemos leer y escribir archivos para almacenar información.">
+  <meta property="og:locale" content="es_cl">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Semana 7: Manejo de archivos | Programación en Python</title>
+<link rel="icon" href="/curso-programacion-python/favicon.png" >
+<link rel="manifest" href="/curso-programacion-python/manifest.json">
+<link rel="canonical" href="https://alejandro.earth/curso-programacion-python/docs/course/s7-manejo-archivos/">
+<link rel="stylesheet" href="/curso-programacion-python/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css" integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin="anonymous">
+  <script defer src="/curso-programacion-python/fuse.min.js"></script>
+  <script defer src="/curso-programacion-python/en.search.min.8e3c8687ba0706cfc7b01931911e7c95b103f7176e4707b9f67f40852d71ba7a.js" integrity="sha256-jjyGh7oHBs/HsBkxkR58lbED9xduRwe59n9AhS1xuno=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/curso-programacion-python/"><span>Programación en Python</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/como-usar-curso/" class="">Conóce el curso</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s1-variables-funciones/" class="">Semana 1: Variables y funciones</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s2-control-condicionales/" class="">Semana 2: Condicionales</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s3-control-bucles/" class="">Semana 3: Bucles</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s4-manejo-errores/" class="">Semana 4: Manejo de errores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s5-bibliotecas-python/" class="">Semana 5: Bibliotecas en python</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s6-pruebas-debugging/" class="">Semana 6: Pruebas unitarias y debugging</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s7-manejo-archivos/" class="active">Semana 7: Manejo de archivos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s8-expresiones-regulares/" class="">Semana 8: Expresiones regulares</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s9-programacion-objetos/" class="">Semana 9: Programación orientada a objetos</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/curso-programacion-python/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/curso-programacion-python/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Semana 7: Manejo de archivos</h3>
+
+  <label for="toc-control">
+    
+    <img src="/curso-programacion-python/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-file-io-entrada-y-salida-de-archivos">🔹 File I/O (Entrada y Salida de Archivos)</a></li>
+    <li><a href="#-uso-de-open">🔹 Uso de <code>open</code></a></li>
+    <li><a href="#-uso-de-with-para-manejar-archivos">🔹 Uso de <code>with</code> para manejar archivos</a></li>
+    <li><a href="#-trabajo-con-archivos-csv">🔹 Trabajo con archivos CSV</a></li>
+    <li><a href="#-archivos-binarios-y-pil">🔹 Archivos Binarios y <code>PIL</code></a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="semana-7-manejo-de-archivos">
+  Semana 7: Manejo de archivos
+  <a class="anchor" href="#semana-7-manejo-de-archivos">#</a>
+</h1>
+<h2 id="-contenido">
+  📌 Contenido
+  <a class="anchor" href="#-contenido">#</a>
+</h2>
+<ul>
+<li>Manipulación de archivos en Python</li>
+<li>Uso de <code>open</code> para leer y escribir archivos</li>
+<li>Uso de <code>with</code> para manejar archivos</li>
+<li>Trabajo con archivos CSV</li>
+<li>Archivos binarios y <code>PIL</code> (manejo de imágenes)</li>
+<li>Resumen</li>
+</ul>
+<hr>
+<h2 id="-file-io-entrada-y-salida-de-archivos">
+  🔹 File I/O (Entrada y Salida de Archivos)
+  <a class="anchor" href="#-file-io-entrada-y-salida-de-archivos">#</a>
+</h2>
+<p>Hasta ahora, los datos ingresados en nuestros programas se pierden al finalizar la ejecución. Con <strong>File I/O</strong>, podemos leer y escribir archivos para almacenar información.</p>
+<p>Ejemplo básico de entrada del usuario:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;hello, </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Ahora, guardemos los nombres en una lista:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>names <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+</span></span><span style="display:flex;"><span>    names<span style="color:#f92672">.</span>append(input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>))
+</span></span></code></pre></div><p>Podemos ordenarlos antes de imprimir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> name <span style="color:#f92672">in</span> sorted(names):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;hello, </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Pero, al terminar el programa, los datos se pierden. Para almacenarlos, escribimos en un archivo.</p>
+<hr>
+<h2 id="-uso-de-open">
+  🔹 Uso de <code>open</code>
+  <a class="anchor" href="#-uso-de-open">#</a>
+</h2>
+<p>Podemos usar <code>open()</code> para escribir en un archivo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>file <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;names.txt&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>file<span style="color:#f92672">.</span>write(name)
+</span></span><span style="display:flex;"><span>file<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><p>✅ Esto guarda el nombre en <code>names.txt</code>, pero <strong>sobrescribe</strong> el contenido cada vez.</p>
+<p>Si queremos <strong>agregar</strong> nombres sin sobrescribir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>file <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;names.txt&#34;</span>, <span style="color:#e6db74">&#34;a&#34;</span>)
+</span></span><span style="display:flex;"><span>file<span style="color:#f92672">.</span>write(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>file<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><p>Puedes aprender más en la <a href="https://docs.python.org/3/library/functions.html#open">documentación oficial de <code>open</code></a>.</p>
+<hr>
+<h2 id="-uso-de-with-para-manejar-archivos">
+  🔹 Uso de <code>with</code> para manejar archivos
+  <a class="anchor" href="#-uso-de-with-para-manejar-archivos">#</a>
+</h2>
+<p><code>with</code> se usa para abrir archivos y asegurarse de que se cierren automáticamente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;names.txt&#34;</span>, <span style="color:#e6db74">&#34;a&#34;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>    file<span style="color:#f92672">.</span>write(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Para leer el archivo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;names.txt&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> file:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;hello,&#34;</span>, line<span style="color:#f92672">.</span>rstrip())
+</span></span></code></pre></div><p>✅ <code>rstrip()</code> elimina espacios en blanco adicionales.</p>
+<hr>
+<h2 id="-trabajo-con-archivos-csv">
+  🔹 Trabajo con archivos CSV
+  <a class="anchor" href="#-trabajo-con-archivos-csv">#</a>
+</h2>
+<p>CSV (<strong>Comma Separated Values</strong>) almacena datos en forma tabular.</p>
+<p>Ejemplo de <code>students.csv</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csv" data-lang="csv"><span style="display:flex;"><span><span style="color:#e6db74">Hermione</span>,<span style="color:#e6db74">Gryffindor</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">Harry</span>,<span style="color:#e6db74">Gryffindor</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">Ron</span>,<span style="color:#e6db74">Gryffindor</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">Draco</span>,<span style="color:#e6db74">Slytherin</span>
+</span></span></code></pre></div><p>Podemos leer el archivo en Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;students.csv&#34;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> file:
+</span></span><span style="display:flex;"><span>        name, house <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span>rstrip()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;,&#34;</span>)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74"> is in </span><span style="color:#e6db74">{</span>house<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>🔹 <strong>Uso de <code>csv.reader</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> csv
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>students <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;students.csv&#34;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>    reader <span style="color:#f92672">=</span> csv<span style="color:#f92672">.</span>reader(file)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> reader:
+</span></span><span style="display:flex;"><span>        students<span style="color:#f92672">.</span>append({<span style="color:#e6db74">&#34;name&#34;</span>: row[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;house&#34;</span>: row[<span style="color:#ae81ff">1</span>]})
+</span></span></code></pre></div><p>🔹 <strong>Uso de <code>csv.DictReader</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;students.csv&#34;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>    reader <span style="color:#f92672">=</span> csv<span style="color:#f92672">.</span>DictReader(file)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> reader:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>row[<span style="color:#e6db74">&#39;name&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> is in </span><span style="color:#e6db74">{</span>row[<span style="color:#e6db74">&#39;house&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>✅ <strong>Ventaja</strong>: Accede a los valores por nombre en lugar de índice.</p>
+<p>🔹 <strong>Escribir en un CSV con <code>DictWriter</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> csv
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
+</span></span><span style="display:flex;"><span>home <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Where&#39;s your home? &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;students.csv&#34;</span>, <span style="color:#e6db74">&#34;a&#34;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>    writer <span style="color:#f92672">=</span> csv<span style="color:#f92672">.</span>DictWriter(file, fieldnames<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;home&#34;</span>])
+</span></span><span style="display:flex;"><span>    writer<span style="color:#f92672">.</span>writerow({<span style="color:#e6db74">&#34;name&#34;</span>: name, <span style="color:#e6db74">&#34;home&#34;</span>: home})
+</span></span></code></pre></div><p>Puedes aprender más en la <a href="https://docs.python.org/3/library/csv.html">documentación oficial de <code>csv</code></a>.</p>
+<hr>
+<h2 id="-archivos-binarios-y-pil">
+  🔹 Archivos Binarios y <code>PIL</code>
+  <a class="anchor" href="#-archivos-binarios-y-pil">#</a>
+</h2>
+<p>Las imágenes y otros archivos no textuales son <strong>archivos binarios</strong>.</p>
+<p>La librería <code>PIL</code> (Pillow) permite manipular imágenes en Python.</p>
+<p>🔹 <strong>Instalar Pillow</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install pillow
+</span></span></code></pre></div><p>🔹 <strong>Crear una imagen GIF animada</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> PIL <span style="color:#f92672">import</span> Image
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>images <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> arg <span style="color:#f92672">in</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>:]:
+</span></span><span style="display:flex;"><span>    image <span style="color:#f92672">=</span> Image<span style="color:#f92672">.</span>open(arg)
+</span></span><span style="display:flex;"><span>    images<span style="color:#f92672">.</span>append(image)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>images[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>save(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;costumes.gif&#34;</span>, save_all<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, append_images<span style="color:#f92672">=</span>[images[<span style="color:#ae81ff">1</span>]], duration<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>, loop<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Ejecutar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python costumes.py costume1.gif costume2.gif
+</span></span></code></pre></div><p>✅ <strong>Combina imágenes en un GIF animado</strong>.</p>
+<p>Puedes aprender más en la <a href="https://pillow.readthedocs.io/en/stable/">documentación oficial de Pillow</a>.</p>
+<hr>
+<h2 id="-resumen">
+  📌 Resumen
+  <a class="anchor" href="#-resumen">#</a>
+</h2>
+<p>✔️ <strong><code>open()</code></strong> permite leer y escribir archivos.
+✔️ <strong><code>with</code></strong> facilita la gestión de archivos.
+✔️ <strong>CSV</strong> es útil para almacenar datos estructurados.
+✔️ <strong><code>csv.reader</code> y <code>csv.DictReader</code></strong> permiten leer archivos CSV de forma flexible.
+✔️ <strong><code>PIL</code> (Pillow)</strong> permite manipular imágenes en Python.
+✔️ <strong>Los archivos binarios almacenan información no textual como imágenes y audio.</strong></p>
+<p>🚀 <strong>Ahora puedes manejar archivos en Python y almacenar datos de forma persistente!</strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-file-io-entrada-y-salida-de-archivos">🔹 File I/O (Entrada y Salida de Archivos)</a></li>
+    <li><a href="#-uso-de-open">🔹 Uso de <code>open</code></a></li>
+    <li><a href="#-uso-de-with-para-manejar-archivos">🔹 Uso de <code>with</code> para manejar archivos</a></li>
+    <li><a href="#-trabajo-con-archivos-csv">🔹 Trabajo con archivos CSV</a></li>
+    <li><a href="#-archivos-binarios-y-pil">🔹 Archivos Binarios y <code>PIL</code></a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

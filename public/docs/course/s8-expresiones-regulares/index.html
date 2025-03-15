@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es-cl" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Semana 8: Expresiones regulares
+  #
+
+
+  Contenidos
+  #
+
+
+Expresiones Regulares
+Sensibilidad a Mayúsculas y Minúsculas
+Limpieza de la Entrada del Usuario
+Extracción de la Entrada del Usuario
+Resumen
+
+Las expresiones regulares o &ldquo;regex&rdquo; permiten examinar patrones dentro de un código. Son útiles para validar formatos, como correos electrónicos o URLs.
+
+  Validación de correos electrónicos
+  #
+
+email = input(&#34;What&#39;s your email? &#34;).strip()
+
+if &#34;@&#34; in email and &#34;.&#34; in email:
+    print(&#34;Valid&#34;)
+else:
+    print(&#34;Invalid&#34;)
+Este código es mejorable. Por ejemplo, permite correos no válidos como @..">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://alejandro.earth/curso-programacion-python/docs/course/s8-expresiones-regulares/">
+  <meta property="og:site_name" content="Programación en Python">
+  <meta property="og:title" content="Semana 8: Expresiones regulares">
+  <meta property="og:description" content="Semana 8: Expresiones regulares # Contenidos # Expresiones Regulares Sensibilidad a Mayúsculas y Minúsculas Limpieza de la Entrada del Usuario Extracción de la Entrada del Usuario Resumen Las expresiones regulares o “regex” permiten examinar patrones dentro de un código. Son útiles para validar formatos, como correos electrónicos o URLs.
+Validación de correos electrónicos # email = input(&#34;What&#39;s your email? &#34;).strip() if &#34;@&#34; in email and &#34;.&#34; in email: print(&#34;Valid&#34;) else: print(&#34;Invalid&#34;) Este código es mejorable. Por ejemplo, permite correos no válidos como @..">
+  <meta property="og:locale" content="es_cl">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Semana 8: Expresiones regulares | Programación en Python</title>
+<link rel="icon" href="/curso-programacion-python/favicon.png" >
+<link rel="manifest" href="/curso-programacion-python/manifest.json">
+<link rel="canonical" href="https://alejandro.earth/curso-programacion-python/docs/course/s8-expresiones-regulares/">
+<link rel="stylesheet" href="/curso-programacion-python/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css" integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin="anonymous">
+  <script defer src="/curso-programacion-python/fuse.min.js"></script>
+  <script defer src="/curso-programacion-python/en.search.min.8e3c8687ba0706cfc7b01931911e7c95b103f7176e4707b9f67f40852d71ba7a.js" integrity="sha256-jjyGh7oHBs/HsBkxkR58lbED9xduRwe59n9AhS1xuno=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/curso-programacion-python/"><span>Programación en Python</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/como-usar-curso/" class="">Conóce el curso</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s1-variables-funciones/" class="">Semana 1: Variables y funciones</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s2-control-condicionales/" class="">Semana 2: Condicionales</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s3-control-bucles/" class="">Semana 3: Bucles</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s4-manejo-errores/" class="">Semana 4: Manejo de errores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s5-bibliotecas-python/" class="">Semana 5: Bibliotecas en python</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s6-pruebas-debugging/" class="">Semana 6: Pruebas unitarias y debugging</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s7-manejo-archivos/" class="">Semana 7: Manejo de archivos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s8-expresiones-regulares/" class="active">Semana 8: Expresiones regulares</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s9-programacion-objetos/" class="">Semana 9: Programación orientada a objetos</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/curso-programacion-python/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/curso-programacion-python/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Semana 8: Expresiones regulares</h3>
+
+  <label for="toc-control">
+    
+    <img src="/curso-programacion-python/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#contenidos">Contenidos</a>
+      <ul>
+        <li><a href="#validación-de-correos-electrónicos">Validación de correos electrónicos</a></li>
+        <li><a href="#conceptos-clave-en-regex">Conceptos clave en Regex</a></li>
+      </ul>
+    </li>
+    <li><a href="#limpieza-de-entrada-del-usuario">Limpieza de entrada del usuario</a></li>
+    <li><a href="#extracción-de-datos-de-urls">Extracción de datos de URLs</a></li>
+    <li><a href="#resumen">Resumen</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="semana-8-expresiones-regulares">
+  Semana 8: Expresiones regulares
+  <a class="anchor" href="#semana-8-expresiones-regulares">#</a>
+</h1>
+<h2 id="contenidos">
+  Contenidos
+  <a class="anchor" href="#contenidos">#</a>
+</h2>
+<ul>
+<li>Expresiones Regulares</li>
+<li>Sensibilidad a Mayúsculas y Minúsculas</li>
+<li>Limpieza de la Entrada del Usuario</li>
+<li>Extracción de la Entrada del Usuario</li>
+<li>Resumen</li>
+</ul>
+<p>Las expresiones regulares o &ldquo;regex&rdquo; permiten examinar patrones dentro de un código. Son útiles para validar formatos, como correos electrónicos o URLs.</p>
+<h3 id="validación-de-correos-electrónicos">
+  Validación de correos electrónicos
+  <a class="anchor" href="#validaci%c3%b3n-de-correos-electr%c3%b3nicos">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>email <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your email? &#34;</span>)<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;@&#34;</span> <span style="color:#f92672">in</span> email <span style="color:#f92672">and</span> <span style="color:#e6db74">&#34;.&#34;</span> <span style="color:#f92672">in</span> email:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Valid&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Invalid&#34;</span>)
+</span></span></code></pre></div><p>Este código es mejorable. Por ejemplo, permite correos no válidos como <code>@.</code>.</p>
+<h4 id="mejorando-la-validación-con-split">
+  Mejorando la validación con <code>split()</code>
+  <a class="anchor" href="#mejorando-la-validaci%c3%b3n-con-split">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>email <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your email? &#34;</span>)<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>username, domain <span style="color:#f92672">=</span> email<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;@&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> username <span style="color:#f92672">and</span> domain<span style="color:#f92672">.</span>endswith(<span style="color:#e6db74">&#34;.edu&#34;</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Valid&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Invalid&#34;</span>)
+</span></span></code></pre></div><p>Aún así, <code>malan@.edu</code> sería válido. Para mejorar la validación, usamos el módulo <code>re</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>email <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your email? &#34;</span>)<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;^[^@]+@[^@]+\.edu$&#34;</span>, email):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Valid&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Invalid&#34;</span>)
+</span></span></code></pre></div><h3 id="conceptos-clave-en-regex">
+  Conceptos clave en Regex
+  <a class="anchor" href="#conceptos-clave-en-regex">#</a>
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Símbolo</th>
+          <th>Significado</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.</code></td>
+          <td>Cualquier carácter excepto nueva línea</td>
+      </tr>
+      <tr>
+          <td><code>*</code></td>
+          <td>0 o más repeticiones</td>
+      </tr>
+      <tr>
+          <td><code>+</code></td>
+          <td>1 o más repeticiones</td>
+      </tr>
+      <tr>
+          <td><code>?</code></td>
+          <td>0 o 1 repetición</td>
+      </tr>
+      <tr>
+          <td><code>{m,n}</code></td>
+          <td>Entre m y n repeticiones</td>
+      </tr>
+      <tr>
+          <td><code>^</code></td>
+          <td>Inicio de la cadena</td>
+      </tr>
+      <tr>
+          <td><code>$</code></td>
+          <td>Fin de la cadena</td>
+      </tr>
+      <tr>
+          <td><code>[]</code></td>
+          <td>Conjunto de caracteres</td>
+      </tr>
+      <tr>
+          <td><code>[^]</code></td>
+          <td>Complemento del conjunto</td>
+      </tr>
+      <tr>
+          <td>`</td>
+          <td>`</td>
+      </tr>
+  </tbody>
+</table>
+<p>Ejemplo mejorado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>email <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your email? &#34;</span>)<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;^\w+@(\w+\.)?\w+\.edu$&#34;</span>, email, re<span style="color:#f92672">.</span>IGNORECASE):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Valid&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Invalid&#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="limpieza-de-entrada-del-usuario">
+  Limpieza de entrada del usuario
+  <a class="anchor" href="#limpieza-de-entrada-del-usuario">#</a>
+</h2>
+<p>Ejemplo de formato de nombres:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> matches <span style="color:#f92672">:=</span> re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;^(.+), *(.+)$&#34;</span>, name):
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> matches<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> matches<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;hello, </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Explicación:</p>
+<ul>
+<li><code>(.+)</code> captura el apellido.</li>
+<li><code>*</code> permite espacios opcionales.</li>
+<li><code>(.+)$</code> captura el nombre.</li>
+</ul>
+<hr>
+<h2 id="extracción-de-datos-de-urls">
+  Extracción de datos de URLs
+  <a class="anchor" href="#extracci%c3%b3n-de-datos-de-urls">#</a>
+</h2>
+<p>Queremos extraer un <code>username</code> de un URL de Twitter:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;URL: &#34;</span>)<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> matches <span style="color:#f92672">:=</span> re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;^https?://(?:www\.)?twitter\.com/([a-z0-9_]+)&#34;</span>, url, re<span style="color:#f92672">.</span>IGNORECASE):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Username: </span><span style="color:#e6db74">{</span>matches<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Explicación:</p>
+<ul>
+<li><code>https?://</code> acepta <code>http</code> o <code>https</code>.</li>
+<li><code>(?:www\.)?</code> hace opcional el <code>www.</code>.</li>
+<li><code>twitter\.com/</code> busca la URL base.</li>
+<li><code>([a-z0-9_]+)</code> captura el nombre de usuario.</li>
+</ul>
+<hr>
+<h2 id="resumen">
+  Resumen
+  <a class="anchor" href="#resumen">#</a>
+</h2>
+<p>Hemos aprendido sobre:</p>
+<ul>
+<li>Uso de expresiones regulares para validación.</li>
+<li>Limpieza de entrada del usuario con <code>re.search()</code>.</li>
+<li>Extracción de información con <code>re.sub()</code> y <code>re.match()</code>.</li>
+<li>Uso de banderas como <code>re.IGNORECASE</code> para hacer validaciones más flexibles.</li>
+</ul>
+<p>Puedes profundizar en la documentación oficial de Python sobre <code>re</code>: <a href="https://docs.python.org/3/library/re.html">Documentación de re</a>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#contenidos">Contenidos</a>
+      <ul>
+        <li><a href="#validación-de-correos-electrónicos">Validación de correos electrónicos</a></li>
+        <li><a href="#conceptos-clave-en-regex">Conceptos clave en Regex</a></li>
+      </ul>
+    </li>
+    <li><a href="#limpieza-de-entrada-del-usuario">Limpieza de entrada del usuario</a></li>
+    <li><a href="#extracción-de-datos-de-urls">Extracción de datos de URLs</a></li>
+    <li><a href="#resumen">Resumen</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

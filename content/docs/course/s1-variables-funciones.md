@@ -6,8 +6,6 @@ title: "Semana 1: Variables y funciones"
 
 # Semana 1: Variables y funciones
 
-# 🖥️ Introducción a Python
-
 ## 📌 Contenido
 - Creando Código con Python
 - Funciones
@@ -242,13 +240,13 @@ print(square(4))
 
 ## Resumen
 
-✔️ **Funciones:** Bloques de código reutilizables.
-✔️ **Bugs:** Errores en el código.
-✔️ **Variables:** Almacenan valores.
-✔️ **Comentarios:** Notas en el código.
-✔️ **Pseudocódigo:** Planificación del programa.
-✔️ **Strings:** Secuencias de texto.
-✔️ **int y float:** Números enteros y decimales.
-✔️ **`def` y `return`:** Crear y retornar valores en funciones.
+- ✔️ **Funciones:** Bloques de código reutilizables.
+- ✔️ **Bugs:** Errores en el código.
+- ✔️ **Variables:** Almacenan valores.
+- ✔️ **Comentarios:** Notas en el código.
+- ✔️ **Pseudocódigo:** Planificación del programa.
+- ✔️ **Strings:** Secuencias de texto.
+- ✔️ **int y float:** Números enteros y decimales.
+- ✔️ **`def` y `return`:** Crear y retornar valores en funciones.
 
 🚀 **Ahora puedes escribir programas más complejos en Python!**

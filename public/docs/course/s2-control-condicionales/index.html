@@ -1,28 +1,85 @@
 <!DOCTYPE html>
 <html lang="es-cl" dir="ltr">
-<head><script src="/curso-programacion-python/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=curso-programacion-python/livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
-  Semana 2: Estructuras de control y condicionales
+  Semana 2: Estructuras condicionales
   #
-">
+
+
+  📌 Contenido
+  #
+
+
+Condicionales
+Sentencias if
+Flujo de control con elif y else
+Operadores lógicos or y and
+Operador Módulo %
+Creación de una función de paridad
+Código &ldquo;Pythonic&rdquo;
+Uso de match
+Resumen
+
+
+
+  🔹 Condicionales
+  #
+
+Las condicionales permiten que un programa tome decisiones según ciertas condiciones. En Python, se utilizan operadores de comparación para evaluar estas condiciones:
+
+  
+      
+          Operador
+          Significado
+      
+  
+  
+      
+          &lt;
+          Menor que
+      
+      
+          &gt;
+          Mayor que
+      
+      
+          &lt;=
+          Menor o igual que
+      
+      
+          &gt;=
+          Mayor o igual que
+      
+      
+          ==
+          Igual a (doble =)
+      
+      
+          !=
+          Diferente de
+      
+  
+
+Ejemplo:">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/curso-programacion-python/docs/course/s2-control-condicionales/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://alejandro.earth/curso-programacion-python/docs/course/s2-control-condicionales/">
   <meta property="og:site_name" content="Programación en Python">
-  <meta property="og:title" content="Semana 2: Estructuras de control y condicionales">
-  <meta property="og:description" content="Semana 2: Estructuras de control y condicionales #">
+  <meta property="og:title" content="Semana 2: Condicionales">
+  <meta property="og:description" content="Semana 2: Estructuras condicionales # 📌 Contenido # Condicionales Sentencias if Flujo de control con elif y else Operadores lógicos or y and Operador Módulo % Creación de una función de paridad Código “Pythonic” Uso de match Resumen 🔹 Condicionales # Las condicionales permiten que un programa tome decisiones según ciertas condiciones. En Python, se utilizan operadores de comparación para evaluar estas condiciones:
+Operador Significado &lt; Menor que &gt; Mayor que &lt;= Menor o igual que &gt;= Mayor o igual que == Igual a (doble =) != Diferente de Ejemplo:">
   <meta property="og:locale" content="es_cl">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-<title>Semana 2: Estructuras de control y condicionales | Programación en Python</title>
+<title>Semana 2: Condicionales | Programación en Python</title>
 <link rel="icon" href="/curso-programacion-python/favicon.png" >
 <link rel="manifest" href="/curso-programacion-python/manifest.json">
-<link rel="canonical" href="http://localhost:1313/curso-programacion-python/docs/course/s2-control-condicionales/">
+<link rel="canonical" href="https://alejandro.earth/curso-programacion-python/docs/course/s2-control-condicionales/">
 <link rel="stylesheet" href="/curso-programacion-python/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css" integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin="anonymous">
   <script defer src="/curso-programacion-python/fuse.min.js"></script>
-  <script defer src="/curso-programacion-python/en.search.min.c2f492b592c03a6d20f0e96b13f49ed88a379c963dd6d70efa309d0833ebec43.js" integrity="sha256-wvSStZLAOm0g8OlrE/Se2Io3nJY91tcO&#43;jCdCDPr7EM=" crossorigin="anonymous"></script>
+  <script defer src="/curso-programacion-python/en.search.min.8e3c8687ba0706cfc7b01931911e7c95b103f7176e4707b9f67f40852d71ba7a.js" integrity="sha256-jjyGh7oHBs/HsBkxkR58lbED9xduRwe59n9AhS1xuno=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -100,7 +157,98 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/curso-programacion-python/docs/course/s2-control-condicionales/" class="active">Semana 2: Estructuras de control y condicionales</a>
+    <a href="/curso-programacion-python/docs/course/s2-control-condicionales/" class="active">Semana 2: Condicionales</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s3-control-bucles/" class="">Semana 3: Bucles</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s4-manejo-errores/" class="">Semana 4: Manejo de errores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s5-bibliotecas-python/" class="">Semana 5: Bibliotecas en python</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s6-pruebas-debugging/" class="">Semana 6: Pruebas unitarias y debugging</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s7-manejo-archivos/" class="">Semana 7: Manejo de archivos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s8-expresiones-regulares/" class="">Semana 8: Expresiones regulares</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s9-programacion-objetos/" class="">Semana 9: Programación orientada a objetos</a>
   
 
         </li>
@@ -153,7 +301,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/curso-programacion-python/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Semana 2: Estructuras de control y condicionales</h3>
+  <h3>Semana 2: Condicionales</h3>
 
   <label for="toc-control">
     
@@ -167,7 +315,21 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-condicionales">🔹 Condicionales</a></li>
+    <li><a href="#-sentencias-if">🔹 Sentencias <code>if</code></a></li>
+    <li><a href="#-flujo-de-control-elif-y-else">🔹 Flujo de Control: <code>elif</code> y <code>else</code></a></li>
+    <li><a href="#-operador-or">🔹 Operador <code>or</code></a></li>
+    <li><a href="#-operador-and">🔹 Operador <code>and</code></a></li>
+    <li><a href="#-operador-módulo-">🔹 Operador Módulo <code>%</code></a></li>
+    <li><a href="#-creación-de-una-función-de-paridad">🔹 Creación de una Función de Paridad</a></li>
+    <li><a href="#-código-pythonic">🔹 Código &ldquo;Pythonic&rdquo;</a></li>
+    <li><a href="#-uso-de-match">🔹 Uso de <code>match</code></a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
 
 
 
@@ -178,10 +340,215 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"><h1 id="semana-2-estructuras-de-control-y-condicionales">
-  Semana 2: Estructuras de control y condicionales
-  <a class="anchor" href="#semana-2-estructuras-de-control-y-condicionales">#</a>
+  <article class="markdown book-article"><h1 id="semana-2-estructuras-condicionales">
+  Semana 2: Estructuras condicionales
+  <a class="anchor" href="#semana-2-estructuras-condicionales">#</a>
 </h1>
+<h2 id="-contenido">
+  📌 Contenido
+  <a class="anchor" href="#-contenido">#</a>
+</h2>
+<ul>
+<li>Condicionales</li>
+<li>Sentencias <code>if</code></li>
+<li>Flujo de control con <code>elif</code> y <code>else</code></li>
+<li>Operadores lógicos <code>or</code> y <code>and</code></li>
+<li>Operador Módulo <code>%</code></li>
+<li>Creación de una función de paridad</li>
+<li>Código &ldquo;Pythonic&rdquo;</li>
+<li>Uso de <code>match</code></li>
+<li>Resumen</li>
+</ul>
+<hr>
+<h2 id="-condicionales">
+  🔹 Condicionales
+  <a class="anchor" href="#-condicionales">#</a>
+</h2>
+<p>Las <strong>condicionales</strong> permiten que un programa tome decisiones según ciertas condiciones. En Python, se utilizan <strong>operadores de comparación</strong> para evaluar estas condiciones:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Operador</th>
+          <th>Significado</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>&lt;</code></td>
+          <td>Menor que</td>
+      </tr>
+      <tr>
+          <td><code>&gt;</code></td>
+          <td>Mayor que</td>
+      </tr>
+      <tr>
+          <td><code>&lt;=</code></td>
+          <td>Menor o igual que</td>
+      </tr>
+      <tr>
+          <td><code>&gt;=</code></td>
+          <td>Mayor o igual que</td>
+      </tr>
+      <tr>
+          <td><code>==</code></td>
+          <td>Igual a (doble <code>=</code>)</td>
+      </tr>
+      <tr>
+          <td><code>!=</code></td>
+          <td>Diferente de</td>
+      </tr>
+  </tbody>
+</table>
+<p>Ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;</span> y:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x es mayor que y&#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="-sentencias-if">
+  🔹 Sentencias <code>if</code>
+  <a class="anchor" href="#-sentencias-if">#</a>
+</h2>
+<p>El <code>if</code> permite ejecutar un bloque de código solo si la condición es <strong>True</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s y? &#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;</span> y:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x es menor que y&#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="-flujo-de-control-elif-y-else">
+  🔹 Flujo de Control: <code>elif</code> y <code>else</code>
+  <a class="anchor" href="#-flujo-de-control-elif-y-else">#</a>
+</h2>
+<p>Cuando hay múltiples condiciones, se usa <code>elif</code> (else if) y <code>else</code> para definir rutas alternativas:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s y? &#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;</span> y:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x es menor que y&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> x <span style="color:#f92672">&gt;</span> y:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x es mayor que y&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x es igual a y&#34;</span>)
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li>Si <code>x &lt; y</code>, imprime &ldquo;x es menor que y&rdquo; y no evalúa las siguientes condiciones.</li>
+<li>Si <code>x &gt; y</code>, imprime &ldquo;x es mayor que y&rdquo;.</li>
+<li>Si ninguna de las condiciones anteriores se cumple, ejecuta <code>else</code>.</li>
+</ul>
+<hr>
+<h2 id="-operador-or">
+  🔹 Operador <code>or</code>
+  <a class="anchor" href="#-operador-or">#</a>
+</h2>
+<p><code>or</code> evalúa si <strong>al menos una</strong> de las condiciones es verdadera:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s y? &#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;</span> y <span style="color:#f92672">or</span> x <span style="color:#f92672">&gt;</span> y:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x no es igual a y&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x es igual a y&#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="-operador-and">
+  🔹 Operador <code>and</code>
+  <a class="anchor" href="#-operador-and">#</a>
+</h2>
+<p><code>and</code> evalúa si <strong>ambas</strong> condiciones son verdaderas:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>score <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Score: &#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> score <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">90</span> <span style="color:#f92672">and</span> score <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Grade: A&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> score <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">80</span> <span style="color:#f92672">and</span> score <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">90</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Grade: B&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> score <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">70</span> <span style="color:#f92672">and</span> score <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">80</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Grade: C&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> score <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">and</span> score <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">70</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Grade: D&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Grade: F&#34;</span>)
+</span></span></code></pre></div><p>✅ Se puede escribir de forma <strong>más Pythonic</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#ae81ff">90</span> <span style="color:#f92672">&lt;=</span> score <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Grade: A&#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="-operador-módulo-">
+  🔹 Operador Módulo <code>%</code>
+  <a class="anchor" href="#-operador-m%c3%b3dulo-">#</a>
+</h2>
+<p>El <strong>módulo</strong> (<code>%</code>) devuelve el residuo de una división. Se usa para verificar si un número es <strong>par o impar</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> x <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Even&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Odd&#34;</span>)
+</span></span></code></pre></div><hr>
+<h2 id="-creación-de-una-función-de-paridad">
+  🔹 Creación de una Función de Paridad
+  <a class="anchor" href="#-creaci%c3%b3n-de-una-funci%c3%b3n-de-paridad">#</a>
+</h2>
+<p>Podemos crear una función para verificar si un número es par:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_even</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> is_even(x):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Even&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Odd&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main()
+</span></span></code></pre></div><hr>
+<h2 id="-código-pythonic">
+  🔹 Código &ldquo;Pythonic&rdquo;
+  <a class="anchor" href="#-c%c3%b3digo-pythonic">#</a>
+</h2>
+<p>Python permite escribir código de forma más concisa. Podemos refactorizar <code>is_even(n)</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_even</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span> <span style="color:#66d9ef">if</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>O incluso <strong>más limpio</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_even</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>✅ <strong>Mejor legibilidad y eficiencia.</strong></p>
+<hr>
+<h2 id="-uso-de-match">
+  🔹 Uso de <code>match</code>
+  <a class="anchor" href="#-uso-de-match">#</a>
+</h2>
+<p><code>match</code> es similar a <code>if-elif-else</code> pero más limpio en ciertos casos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">match</span> name:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;Harry&#34;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#34;Hermione&#34;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#34;Ron&#34;</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Gryffindor&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;Draco&#34;</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Slytherin&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> _:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Who?&#34;</span>)
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li><code>case &quot;Harry&quot; | &quot;Hermione&quot; | &quot;Ron&quot;:</code> agrupa varios casos en uno solo.</li>
+<li><code>case _:</code> es un <strong>&ldquo;catch-all&rdquo;</strong>, similar a <code>else</code>.</li>
+</ul>
+<hr>
+<h2 id="-resumen">
+  📌 Resumen
+  <a class="anchor" href="#-resumen">#</a>
+</h2>
+<ul>
+<li>✔️ <strong>Condicionales</strong> permiten tomar decisiones en un programa.</li>
+<li>✔️ <strong><code>if</code></strong> ejecuta código si una condición es verdadera.</li>
+<li>✔️ <strong><code>elif</code> y <code>else</code></strong> manejan múltiples opciones.</li>
+<li>✔️ <strong><code>or</code></strong> verifica si al menos una condición es <code>True</code>.</li>
+<li>✔️ <strong><code>and</code></strong> verifica si ambas condiciones son <code>True</code>.</li>
+<li>✔️ <strong><code>%</code></strong> ayuda a determinar si un número es par o impar.</li>
+<li>✔️ <strong>Funciones</strong> permiten reutilizar código, como <code>is_even(n)</code>.</li>
+<li>✔️ <strong>Código Pythonic</strong> mejora la legibilidad y eficiencia.</li>
+<li>✔️ <strong><code>match</code></strong> simplifica comparaciones con muchos casos.</li>
+</ul>
+<p>🚀 <strong>Ahora puedes construir programas con decisiones lógicas en Python!</strong></p>
 </article>
  
       
@@ -221,7 +588,21 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-condicionales">🔹 Condicionales</a></li>
+    <li><a href="#-sentencias-if">🔹 Sentencias <code>if</code></a></li>
+    <li><a href="#-flujo-de-control-elif-y-else">🔹 Flujo de Control: <code>elif</code> y <code>else</code></a></li>
+    <li><a href="#-operador-or">🔹 Operador <code>or</code></a></li>
+    <li><a href="#-operador-and">🔹 Operador <code>and</code></a></li>
+    <li><a href="#-operador-módulo-">🔹 Operador Módulo <code>%</code></a></li>
+    <li><a href="#-creación-de-una-función-de-paridad">🔹 Creación de una Función de Paridad</a></li>
+    <li><a href="#-código-pythonic">🔹 Código &ldquo;Pythonic&rdquo;</a></li>
+    <li><a href="#-uso-de-match">🔹 Uso de <code>match</code></a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
 
 
  

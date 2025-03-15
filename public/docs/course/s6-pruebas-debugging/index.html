@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es-cl" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Semana 6: Pruebas unitarias y debugging
+  #
+
+
+  📌 Contenido
+  #
+
+
+Pruebas unitarias (Unit Tests)
+Uso de assert
+Uso de pytest
+Pruebas con cadenas (Strings)
+Organización de pruebas en carpetas
+Resumen
+
+
+
+  🔹 Pruebas Unitarias
+  #
+
+Las pruebas unitarias permiten verificar si funciones individuales de un programa funcionan correctamente.
+Ejemplo:
+def main():
+    x = int(input(&#34;What&#39;s x? &#34;))
+    print(&#34;x squared is&#34;, square(x))
+
+def square(n):
+    return n * n
+
+if __name__ == &#34;__main__&#34;:
+    main()
+Podemos crear una prueba para esta función en test_calculator.py:">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://alejandro.earth/curso-programacion-python/docs/course/s6-pruebas-debugging/">
+  <meta property="og:site_name" content="Programación en Python">
+  <meta property="og:title" content="Semana 6: Pruebas unitarias y debugging">
+  <meta property="og:description" content="Semana 6: Pruebas unitarias y debugging # 📌 Contenido # Pruebas unitarias (Unit Tests) Uso de assert Uso de pytest Pruebas con cadenas (Strings) Organización de pruebas en carpetas Resumen 🔹 Pruebas Unitarias # Las pruebas unitarias permiten verificar si funciones individuales de un programa funcionan correctamente.
+Ejemplo:
+def main(): x = int(input(&#34;What&#39;s x? &#34;)) print(&#34;x squared is&#34;, square(x)) def square(n): return n * n if __name__ == &#34;__main__&#34;: main() Podemos crear una prueba para esta función en test_calculator.py:">
+  <meta property="og:locale" content="es_cl">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Semana 6: Pruebas unitarias y debugging | Programación en Python</title>
+<link rel="icon" href="/curso-programacion-python/favicon.png" >
+<link rel="manifest" href="/curso-programacion-python/manifest.json">
+<link rel="canonical" href="https://alejandro.earth/curso-programacion-python/docs/course/s6-pruebas-debugging/">
+<link rel="stylesheet" href="/curso-programacion-python/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css" integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin="anonymous">
+  <script defer src="/curso-programacion-python/fuse.min.js"></script>
+  <script defer src="/curso-programacion-python/en.search.min.8e3c8687ba0706cfc7b01931911e7c95b103f7176e4707b9f67f40852d71ba7a.js" integrity="sha256-jjyGh7oHBs/HsBkxkR58lbED9xduRwe59n9AhS1xuno=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/curso-programacion-python/"><span>Programación en Python</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/como-usar-curso/" class="">Conóce el curso</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s1-variables-funciones/" class="">Semana 1: Variables y funciones</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s2-control-condicionales/" class="">Semana 2: Condicionales</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s3-control-bucles/" class="">Semana 3: Bucles</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s4-manejo-errores/" class="">Semana 4: Manejo de errores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s5-bibliotecas-python/" class="">Semana 5: Bibliotecas en python</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s6-pruebas-debugging/" class="active">Semana 6: Pruebas unitarias y debugging</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s7-manejo-archivos/" class="">Semana 7: Manejo de archivos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s8-expresiones-regulares/" class="">Semana 8: Expresiones regulares</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s9-programacion-objetos/" class="">Semana 9: Programación orientada a objetos</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/curso-programacion-python/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/curso-programacion-python/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Semana 6: Pruebas unitarias y debugging</h3>
+
+  <label for="toc-control">
+    
+    <img src="/curso-programacion-python/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-pruebas-unitarias">🔹 Pruebas Unitarias</a></li>
+    <li><a href="#-uso-de-assert">🔹 Uso de <code>assert</code></a></li>
+    <li><a href="#-uso-de-pytest">🔹 Uso de <code>pytest</code></a></li>
+    <li><a href="#-pruebas-con-cadenas-strings">🔹 Pruebas con Cadenas (<code>Strings</code>)</a></li>
+    <li><a href="#-organización-de-pruebas-en-carpetas">🔹 Organización de Pruebas en Carpetas</a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="semana-6-pruebas-unitarias-y-debugging">
+  Semana 6: Pruebas unitarias y debugging
+  <a class="anchor" href="#semana-6-pruebas-unitarias-y-debugging">#</a>
+</h1>
+<h2 id="-contenido">
+  📌 Contenido
+  <a class="anchor" href="#-contenido">#</a>
+</h2>
+<ul>
+<li>Pruebas unitarias (<code>Unit Tests</code>)</li>
+<li>Uso de <code>assert</code></li>
+<li>Uso de <code>pytest</code></li>
+<li>Pruebas con cadenas (<code>Strings</code>)</li>
+<li>Organización de pruebas en carpetas</li>
+<li>Resumen</li>
+</ul>
+<hr>
+<h2 id="-pruebas-unitarias">
+  🔹 Pruebas Unitarias
+  <a class="anchor" href="#-pruebas-unitarias">#</a>
+</h2>
+<p>Las <strong>pruebas unitarias</strong> permiten verificar si funciones individuales de un programa funcionan correctamente.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x squared is&#34;</span>, square(x))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">square</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">*</span> n
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><p>Podemos crear una prueba para esta función en <code>test_calculator.py</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> calculator <span style="color:#f92672">import</span> square
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_square</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> square(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">4</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;2 squared was not 4&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> square(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">9</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;3 squared was not 9&#34;</span>)
+</span></span></code></pre></div><p>✅ <strong>Ejecutar prueba</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python test_calculator.py
+</span></span></code></pre></div><hr>
+<h2 id="-uso-de-assert">
+  🔹 Uso de <code>assert</code>
+  <a class="anchor" href="#-uso-de-assert">#</a>
+</h2>
+<p>Podemos mejorar nuestras pruebas usando <code>assert</code>, que verifica si una condición es <code>True</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> calculator <span style="color:#f92672">import</span> square
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_square</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> square(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> square(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">9</span>
+</span></span></code></pre></div><p>✅ Si una prueba falla, Python genera un <code>AssertionError</code>.</p>
+<p>🔹 <strong>Errores intencionales para prueba</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">square</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">+</span> n  <span style="color:#75715e"># Error intencional</span>
+</span></span></code></pre></div><p>Ejecutar <code>python test_calculator.py</code> ahora generará un <code>AssertionError</code>.</p>
+<p>Puedes aprender más en la <a href="https://docs.python.org/3/reference/simple_stmts.html#assert">documentación oficial de Python sobre <code>assert</code></a>.</p>
+<hr>
+<h2 id="-uso-de-pytest">
+  🔹 Uso de <code>pytest</code>
+  <a class="anchor" href="#-uso-de-pytest">#</a>
+</h2>
+<p><code>pytest</code> es un <strong>framework de pruebas</strong> que simplifica la ejecución de pruebas unitarias.</p>
+<p>🔹 <strong>Instalar <code>pytest</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install pytest
+</span></span></code></pre></div><p>🔹 <strong>Código de prueba con <code>pytest</code></strong> (<code>test_calculator.py</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> calculator <span style="color:#f92672">import</span> square
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_positive</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> square(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> square(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_negative</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> square(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> square(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_zero</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> square(<span style="color:#ae81ff">0</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>✅ <strong>Ejecutar <code>pytest</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pytest test_calculator.py
+</span></span></code></pre></div><p>🔹 <strong>Prueba de errores con <code>pytest.raises</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pytest
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> calculator <span style="color:#f92672">import</span> square
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_str</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> pytest<span style="color:#f92672">.</span>raises(<span style="color:#a6e22e">TypeError</span>):
+</span></span><span style="display:flex;"><span>        square(<span style="color:#e6db74">&#34;cat&#34;</span>)
+</span></span></code></pre></div><p>✅ <strong>Verifica que una excepción <code>TypeError</code> sea lanzada</strong>.</p>
+<p>Puedes aprender más en la <a href="https://docs.pytest.org/en/stable/">documentación oficial de <code>pytest</code></a>.</p>
+<hr>
+<h2 id="-pruebas-con-cadenas-strings">
+  🔹 Pruebas con Cadenas (<code>Strings</code>)
+  <a class="anchor" href="#-pruebas-con-cadenas-strings">#</a>
+</h2>
+<p>Ejemplo con <code>hello.py</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>(to<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;world&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;hello, </span><span style="color:#e6db74">{</span>to<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>🔹 <strong>Código de prueba (<code>test_hello.py</code>)</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> hello <span style="color:#f92672">import</span> hello
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_default</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> hello() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;hello, world&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_argument</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span> hello(<span style="color:#e6db74">&#34;David&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;hello, David&#34;</span>
+</span></span></code></pre></div><p>✅ <strong>Ejecutar pruebas con <code>pytest</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pytest test_hello.py
+</span></span></code></pre></div><hr>
+<h2 id="-organización-de-pruebas-en-carpetas">
+  🔹 Organización de Pruebas en Carpetas
+  <a class="anchor" href="#-organizaci%c3%b3n-de-pruebas-en-carpetas">#</a>
+</h2>
+<p>Es común organizar pruebas en una carpeta específica:</p>
+<ol>
+<li>Crear una carpeta <code>test</code>:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir test
+</span></span></code></pre></div><ol start="2">
+<li>
+<p>Mover <code>test_hello.py</code> a la carpeta <code>test/</code>.</p>
+</li>
+<li>
+<p>Crear un archivo <code>test/__init__.py</code> (puede estar vacío).</p>
+</li>
+<li>
+<p>Ejecutar todas las pruebas de la carpeta:</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pytest test
+</span></span></code></pre></div><p>Puedes aprender más sobre organización de pruebas en la <a href="https://docs.pytest.org/en/stable/goodpractices.html#tests-outside-application-code">documentación de <code>pytest</code> sobre importación</a>.</p>
+<hr>
+<h2 id="-resumen">
+  📌 Resumen
+  <a class="anchor" href="#-resumen">#</a>
+</h2>
+<p>✔️ <strong>Pruebas unitarias</strong> ayudan a garantizar que el código funcione correctamente.
+✔️ <strong><code>assert</code></strong> permite verificar condiciones en las pruebas.
+✔️ <strong><code>pytest</code></strong> simplifica la ejecución de pruebas.
+✔️ <strong><code>pytest.raises</code></strong> verifica que los errores sean manejados correctamente.
+✔️ <strong>Pruebas con cadenas</strong> permiten validar funciones de texto.
+✔️ <strong>Organizar pruebas en carpetas</strong> facilita la gestión de grandes proyectos.</p>
+<p>🚀 <strong>Ahora puedes escribir y ejecutar pruebas en Python!</strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-pruebas-unitarias">🔹 Pruebas Unitarias</a></li>
+    <li><a href="#-uso-de-assert">🔹 Uso de <code>assert</code></a></li>
+    <li><a href="#-uso-de-pytest">🔹 Uso de <code>pytest</code></a></li>
+    <li><a href="#-pruebas-con-cadenas-strings">🔹 Pruebas con Cadenas (<code>Strings</code>)</a></li>
+    <li><a href="#-organización-de-pruebas-en-carpetas">🔹 Organización de Pruebas en Carpetas</a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

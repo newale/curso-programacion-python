@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es-cl" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Semana 5: Bibliotecas en python
+  #
+
+
+  📌 Contenido
+  #
+
+
+Librerías en Python
+Uso de random
+Uso de statistics
+Argumentos en línea de comandos
+Uso de slice
+Instalación de paquetes (pip)
+APIs y requests
+Creación de librerías propias
+Resumen
+
+
+
+  🔹 Librerías en Python
+  #
+
+Las librerías son fragmentos de código reutilizables escritos por otros desarrolladores o por ti mismo.
+Python permite importar estas librerías usando import.
+import random
+Esto nos da acceso a todas las funciones de la librería random.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://alejandro.earth/curso-programacion-python/docs/course/s5-bibliotecas-python/">
+  <meta property="og:site_name" content="Programación en Python">
+  <meta property="og:title" content="Semana 5: Bibliotecas en python">
+  <meta property="og:description" content="Semana 5: Bibliotecas en python # 📌 Contenido # Librerías en Python Uso de random Uso de statistics Argumentos en línea de comandos Uso de slice Instalación de paquetes (pip) APIs y requests Creación de librerías propias Resumen 🔹 Librerías en Python # Las librerías son fragmentos de código reutilizables escritos por otros desarrolladores o por ti mismo.
+Python permite importar estas librerías usando import.
+import random Esto nos da acceso a todas las funciones de la librería random.">
+  <meta property="og:locale" content="es_cl">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Semana 5: Bibliotecas en python | Programación en Python</title>
+<link rel="icon" href="/curso-programacion-python/favicon.png" >
+<link rel="manifest" href="/curso-programacion-python/manifest.json">
+<link rel="canonical" href="https://alejandro.earth/curso-programacion-python/docs/course/s5-bibliotecas-python/">
+<link rel="stylesheet" href="/curso-programacion-python/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css" integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin="anonymous">
+  <script defer src="/curso-programacion-python/fuse.min.js"></script>
+  <script defer src="/curso-programacion-python/en.search.min.8e3c8687ba0706cfc7b01931911e7c95b103f7176e4707b9f67f40852d71ba7a.js" integrity="sha256-jjyGh7oHBs/HsBkxkR58lbED9xduRwe59n9AhS1xuno=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/curso-programacion-python/"><span>Programación en Python</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/como-usar-curso/" class="">Conóce el curso</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s1-variables-funciones/" class="">Semana 1: Variables y funciones</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s2-control-condicionales/" class="">Semana 2: Condicionales</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s3-control-bucles/" class="">Semana 3: Bucles</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s4-manejo-errores/" class="">Semana 4: Manejo de errores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s5-bibliotecas-python/" class="active">Semana 5: Bibliotecas en python</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s6-pruebas-debugging/" class="">Semana 6: Pruebas unitarias y debugging</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s7-manejo-archivos/" class="">Semana 7: Manejo de archivos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s8-expresiones-regulares/" class="">Semana 8: Expresiones regulares</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s9-programacion-objetos/" class="">Semana 9: Programación orientada a objetos</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/curso-programacion-python/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/curso-programacion-python/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Semana 5: Bibliotecas en python</h3>
+
+  <label for="toc-control">
+    
+    <img src="/curso-programacion-python/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-librerías-en-python">🔹 Librerías en Python</a></li>
+    <li><a href="#-uso-de-random">🔹 Uso de <code>random</code></a>
+      <ul>
+        <li><a href="#-selección-aleatoria-con-choice">📍 Selección aleatoria con <code>choice()</code></a></li>
+        <li><a href="#-número-aleatorio-con-randint">📍 Número aleatorio con <code>randint()</code></a></li>
+        <li><a href="#-mezclar-una-lista-con-shuffle">📍 Mezclar una lista con <code>shuffle()</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-uso-de-statistics">🔹 Uso de <code>statistics</code></a></li>
+    <li><a href="#-argumentos-en-línea-de-comandos">🔹 Argumentos en Línea de Comandos</a></li>
+    <li><a href="#-uso-de-slice">🔹 Uso de <code>slice</code></a></li>
+    <li><a href="#-instalación-de-paquetes-pip">🔹 Instalación de Paquetes (<code>pip</code>)</a></li>
+    <li><a href="#-apis-y-requests">🔹 APIs y <code>requests</code></a></li>
+    <li><a href="#-creación-de-librerías-propias">🔹 Creación de Librerías Propias</a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="semana-5-bibliotecas-en-python">
+  Semana 5: Bibliotecas en python
+  <a class="anchor" href="#semana-5-bibliotecas-en-python">#</a>
+</h1>
+<h2 id="-contenido">
+  📌 Contenido
+  <a class="anchor" href="#-contenido">#</a>
+</h2>
+<ul>
+<li>Librerías en Python</li>
+<li>Uso de <code>random</code></li>
+<li>Uso de <code>statistics</code></li>
+<li>Argumentos en línea de comandos</li>
+<li>Uso de <code>slice</code></li>
+<li>Instalación de paquetes (<code>pip</code>)</li>
+<li>APIs y <code>requests</code></li>
+<li>Creación de librerías propias</li>
+<li>Resumen</li>
+</ul>
+<hr>
+<h2 id="-librerías-en-python">
+  🔹 Librerías en Python
+  <a class="anchor" href="#-librer%c3%adas-en-python">#</a>
+</h2>
+<p>Las <strong>librerías</strong> son fragmentos de código reutilizables escritos por otros desarrolladores o por ti mismo.</p>
+<p>Python permite importar estas librerías usando <code>import</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span></code></pre></div><p>Esto nos da acceso a todas las funciones de la librería <code>random</code>.</p>
+<hr>
+<h2 id="-uso-de-random">
+  🔹 Uso de <code>random</code>
+  <a class="anchor" href="#-uso-de-random">#</a>
+</h2>
+<p>La librería <code>random</code> permite trabajar con valores aleatorios.</p>
+<h3 id="-selección-aleatoria-con-choice">
+  📍 Selección aleatoria con <code>choice()</code>
+  <a class="anchor" href="#-selecci%c3%b3n-aleatoria-con-choice">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> choice
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>coin <span style="color:#f92672">=</span> choice([<span style="color:#e6db74">&#34;heads&#34;</span>, <span style="color:#e6db74">&#34;tails&#34;</span>])
+</span></span><span style="display:flex;"><span>print(coin)
+</span></span></code></pre></div><h3 id="-número-aleatorio-con-randint">
+  📍 Número aleatorio con <code>randint()</code>
+  <a class="anchor" href="#-n%c3%bamero-aleatorio-con-randint">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>number <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>print(number)
+</span></span></code></pre></div><h3 id="-mezclar-una-lista-con-shuffle">
+  📍 Mezclar una lista con <code>shuffle()</code>
+  <a class="anchor" href="#-mezclar-una-lista-con-shuffle">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cards <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;jack&#34;</span>, <span style="color:#e6db74">&#34;queen&#34;</span>, <span style="color:#e6db74">&#34;king&#34;</span>]
+</span></span><span style="display:flex;"><span>random<span style="color:#f92672">.</span>shuffle(cards)
+</span></span><span style="display:flex;"><span>print(cards)
+</span></span></code></pre></div><p>Puedes aprender más en la <a href="https://docs.python.org/3/library/random.html">documentación oficial de Python sobre <code>random</code></a>.</p>
+<hr>
+<h2 id="-uso-de-statistics">
+  🔹 Uso de <code>statistics</code>
+  <a class="anchor" href="#-uso-de-statistics">#</a>
+</h2>
+<p>La librería <code>statistics</code> permite cálculos estadísticos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> statistics
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(statistics<span style="color:#f92672">.</span>mean([<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">90</span>]))
+</span></span></code></pre></div><p>✅ Calcula la <strong>media aritmética</strong> de los valores de la lista.</p>
+<p>Puedes aprender más en la <a href="https://docs.python.org/3/library/statistics.html">documentación oficial de Python sobre <code>statistics</code></a>.</p>
+<hr>
+<h2 id="-argumentos-en-línea-de-comandos">
+  🔹 Argumentos en Línea de Comandos
+  <a class="anchor" href="#-argumentos-en-l%c3%adnea-de-comandos">#</a>
+</h2>
+<p>El módulo <code>sys</code> permite recibir <strong>argumentos desde la terminal</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello, my name is&#34;</span>, sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p>⚠ <strong>Errores comunes:</strong> Si no se proporciona un argumento, <code>sys.argv[1]</code> generará un error.</p>
+<p>✅ <strong>Manejo de errores con <code>try-except</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;hello, my name is&#34;</span>, sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">IndexError</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Too few arguments&#34;</span>)
+</span></span></code></pre></div><p>✅ <strong>Verificación de número de argumentos</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>exit(<span style="color:#e6db74">&#34;Too few arguments&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>exit(<span style="color:#e6db74">&#34;Too many arguments&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello, my name is&#34;</span>, sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><hr>
+<h2 id="-uso-de-slice">
+  🔹 Uso de <code>slice</code>
+  <a class="anchor" href="#-uso-de-slice">#</a>
+</h2>
+<p>El método <code>slice</code> permite seleccionar partes de una lista:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>exit(<span style="color:#e6db74">&#34;Too few arguments&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> arg <span style="color:#f92672">in</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>:]:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;hello, my name is&#34;</span>, arg)
+</span></span></code></pre></div><p>✅ <code>sys.argv[1:]</code> omite el primer elemento (<code>sys.argv[0]</code>, el nombre del script).</p>
+<hr>
+<h2 id="-instalación-de-paquetes-pip">
+  🔹 Instalación de Paquetes (<code>pip</code>)
+  <a class="anchor" href="#-instalaci%c3%b3n-de-paquetes-pip">#</a>
+</h2>
+<p>Python permite instalar paquetes de terceros desde <a href="https://pypi.org/">PyPI</a> usando <code>pip</code>.</p>
+<p>Ejemplo: Instalación de <code>cowsay</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install cowsay
+</span></span></code></pre></div><p>Uso en código:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> cowsay
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>    cowsay<span style="color:#f92672">.</span>cow(<span style="color:#e6db74">&#34;hello, &#34;</span> <span style="color:#f92672">+</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p>✅ También puedes usar otros personajes como <code>cowsay.trex()</code>.</p>
+<p>Puedes aprender más sobre paquetes en la <a href="https://pip.pypa.io/en/stable/">documentación de <code>pip</code></a>.</p>
+<hr>
+<h2 id="-apis-y-requests">
+  🔹 APIs y <code>requests</code>
+  <a class="anchor" href="#-apis-y-requests">#</a>
+</h2>
+<p>El módulo <code>requests</code> permite obtener datos desde la web.</p>
+<p>Instalación:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install requests
+</span></span></code></pre></div><p>Ejemplo de uso con la API de iTunes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>exit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;https://itunes.apple.com/search?entity=song&amp;limit=1&amp;term=&#34;</span> <span style="color:#f92672">+</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>print(response<span style="color:#f92672">.</span>json())
+</span></span></code></pre></div><p>✅ Para mejorar la legibilidad del JSON:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(json<span style="color:#f92672">.</span>dumps(response<span style="color:#f92672">.</span>json(), indent<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>))
+</span></span></code></pre></div><p>✅ Para obtener solo los nombres de las canciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;https://itunes.apple.com/search?entity=song&amp;limit=50&amp;term=&#34;</span> <span style="color:#f92672">+</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>songs <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>json()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> song <span style="color:#f92672">in</span> songs[<span style="color:#e6db74">&#34;results&#34;</span>]:
+</span></span><span style="display:flex;"><span>    print(song[<span style="color:#e6db74">&#34;trackName&#34;</span>])
+</span></span></code></pre></div><p>Puedes aprender más en la <a href="https://docs.python-requests.org/en/latest/">documentación de <code>requests</code></a>.</p>
+<hr>
+<h2 id="-creación-de-librerías-propias">
+  🔹 Creación de Librerías Propias
+  <a class="anchor" href="#-creaci%c3%b3n-de-librer%c3%adas-propias">#</a>
+</h2>
+<p>Podemos crear nuestras propias librerías en Python.</p>
+<p>Ejemplo: Creamos <code>sayings.py</code> con las siguientes funciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>(name):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;hello, </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">goodbye</span>(name):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;goodbye, </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>Luego, podemos importarlas en otro archivo <code>say.py</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sayings <span style="color:#f92672">import</span> goodbye
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>    goodbye(sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])
+</span></span></code></pre></div><p>✅ <strong>Beneficio</strong>: Podemos reutilizar código en múltiples proyectos.</p>
+<hr>
+<h2 id="-resumen">
+  📌 Resumen
+  <a class="anchor" href="#-resumen">#</a>
+</h2>
+<p>✔️ <strong>Librerías</strong> permiten extender las capacidades de Python.
+✔️ <strong><code>random</code></strong> ayuda a generar valores aleatorios.
+✔️ <strong><code>statistics</code></strong> permite cálculos estadísticos.
+✔️ <strong><code>sys.argv</code></strong> permite recibir argumentos desde la terminal.
+✔️ <strong><code>slice</code></strong> selecciona partes de listas.
+✔️ <strong>Paquetes (<code>pip</code>)</strong> permiten instalar librerías externas.
+✔️ <strong>APIs (<code>requests</code>)</strong> facilitan obtener datos de la web.
+✔️ <strong>Podemos crear nuestras propias librerías para reutilizar código.</strong></p>
+<p>🚀 <strong>Ahora puedes trabajar con librerías en Python y optimizar tu código!</strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-librerías-en-python">🔹 Librerías en Python</a></li>
+    <li><a href="#-uso-de-random">🔹 Uso de <code>random</code></a>
+      <ul>
+        <li><a href="#-selección-aleatoria-con-choice">📍 Selección aleatoria con <code>choice()</code></a></li>
+        <li><a href="#-número-aleatorio-con-randint">📍 Número aleatorio con <code>randint()</code></a></li>
+        <li><a href="#-mezclar-una-lista-con-shuffle">📍 Mezclar una lista con <code>shuffle()</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-uso-de-statistics">🔹 Uso de <code>statistics</code></a></li>
+    <li><a href="#-argumentos-en-línea-de-comandos">🔹 Argumentos en Línea de Comandos</a></li>
+    <li><a href="#-uso-de-slice">🔹 Uso de <code>slice</code></a></li>
+    <li><a href="#-instalación-de-paquetes-pip">🔹 Instalación de Paquetes (<code>pip</code>)</a></li>
+    <li><a href="#-apis-y-requests">🔹 APIs y <code>requests</code></a></li>
+    <li><a href="#-creación-de-librerías-propias">🔹 Creación de Librerías Propias</a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

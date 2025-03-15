@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es-cl" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Semana 4: Manejo de errores
+  #
+
+
+  📌 Contenido
+  #
+
+
+Excepciones en Python
+Errores en tiempo de ejecución
+Manejo de errores con try
+Uso de else en try
+Creando una función para obtener un entero
+Uso de pass
+Resumen
+
+
+
+  🔹 Excepciones en Python
+  #
+
+Las excepciones ocurren cuando algo sale mal en el código.
+Ejemplo de un error de sintaxis:
+print(&#34;hello, world)
+🔹 Error generado:
+SyntaxError: EOL while scanning string literal
+💡 Solución: Revisar la sintaxis y corregir el error.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://alejandro.earth/curso-programacion-python/docs/course/s4-manejo-errores/">
+  <meta property="og:site_name" content="Programación en Python">
+  <meta property="og:title" content="Semana 4: Manejo de errores">
+  <meta property="og:description" content="Semana 4: Manejo de errores # 📌 Contenido # Excepciones en Python Errores en tiempo de ejecución Manejo de errores con try Uso de else en try Creando una función para obtener un entero Uso de pass Resumen 🔹 Excepciones en Python # Las excepciones ocurren cuando algo sale mal en el código.
+Ejemplo de un error de sintaxis:
+print(&#34;hello, world) 🔹 Error generado:
+SyntaxError: EOL while scanning string literal 💡 Solución: Revisar la sintaxis y corregir el error.">
+  <meta property="og:locale" content="es_cl">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Semana 4: Manejo de errores | Programación en Python</title>
+<link rel="icon" href="/curso-programacion-python/favicon.png" >
+<link rel="manifest" href="/curso-programacion-python/manifest.json">
+<link rel="canonical" href="https://alejandro.earth/curso-programacion-python/docs/course/s4-manejo-errores/">
+<link rel="stylesheet" href="/curso-programacion-python/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css" integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin="anonymous">
+  <script defer src="/curso-programacion-python/fuse.min.js"></script>
+  <script defer src="/curso-programacion-python/en.search.min.8e3c8687ba0706cfc7b01931911e7c95b103f7176e4707b9f67f40852d71ba7a.js" integrity="sha256-jjyGh7oHBs/HsBkxkR58lbED9xduRwe59n9AhS1xuno=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/curso-programacion-python/"><span>Programación en Python</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/como-usar-curso/" class="">Conóce el curso</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s1-variables-funciones/" class="">Semana 1: Variables y funciones</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s2-control-condicionales/" class="">Semana 2: Condicionales</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s3-control-bucles/" class="">Semana 3: Bucles</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s4-manejo-errores/" class="active">Semana 4: Manejo de errores</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s5-bibliotecas-python/" class="">Semana 5: Bibliotecas en python</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s6-pruebas-debugging/" class="">Semana 6: Pruebas unitarias y debugging</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s7-manejo-archivos/" class="">Semana 7: Manejo de archivos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s8-expresiones-regulares/" class="">Semana 8: Expresiones regulares</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/s9-programacion-objetos/" class="">Semana 9: Programación orientada a objetos</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/curso-programacion-python/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/curso-programacion-python/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Semana 4: Manejo de errores</h3>
+
+  <label for="toc-control">
+    
+    <img src="/curso-programacion-python/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-excepciones-en-python">🔹 Excepciones en Python</a></li>
+    <li><a href="#-errores-en-tiempo-de-ejecución-runtime-errors">🔹 Errores en Tiempo de Ejecución (Runtime Errors)</a></li>
+    <li><a href="#-uso-de-try-y-except">🔹 Uso de <code>try</code> y <code>except</code></a></li>
+    <li><a href="#-try-con-else">🔹 <code>try</code> con <code>else</code></a></li>
+    <li><a href="#-mejorando-la-entrada-con-un-bucle">🔹 Mejorando la Entrada con un Bucle</a></li>
+    <li><a href="#-creando-una-función-para-obtener-un-entero">🔹 Creando una Función para Obtener un Entero</a></li>
+    <li><a href="#-uso-de-pass">🔹 Uso de <code>pass</code></a></li>
+    <li><a href="#-mejorando-la-función-con-un-parámetro-prompt">🔹 Mejorando la Función con un Parámetro <code>prompt</code></a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="semana-4-manejo-de-errores">
+  Semana 4: Manejo de errores
+  <a class="anchor" href="#semana-4-manejo-de-errores">#</a>
+</h1>
+<h2 id="-contenido">
+  📌 Contenido
+  <a class="anchor" href="#-contenido">#</a>
+</h2>
+<ul>
+<li>Excepciones en Python</li>
+<li>Errores en tiempo de ejecución</li>
+<li>Manejo de errores con <code>try</code></li>
+<li>Uso de <code>else</code> en <code>try</code></li>
+<li>Creando una función para obtener un entero</li>
+<li>Uso de <code>pass</code></li>
+<li>Resumen</li>
+</ul>
+<hr>
+<h2 id="-excepciones-en-python">
+  🔹 Excepciones en Python
+  <a class="anchor" href="#-excepciones-en-python">#</a>
+</h2>
+<p>Las <strong>excepciones</strong> ocurren cuando algo sale mal en el código.</p>
+<p>Ejemplo de un <strong>error de sintaxis</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello, world)</span>
+</span></span></code></pre></div><p>🔹 <strong>Error generado:</strong></p>
+<pre tabindex="0"><code>SyntaxError: EOL while scanning string literal
+</code></pre><p>💡 <strong>Solución</strong>: Revisar la sintaxis y corregir el error.</p>
+<p>Puedes aprender más en la <a href="https://docs.python.org/3/tutorial/errors.html">documentación oficial de Python sobre errores y excepciones</a>.</p>
+<hr>
+<h2 id="-errores-en-tiempo-de-ejecución-runtime-errors">
+  🔹 Errores en Tiempo de Ejecución (Runtime Errors)
+  <a class="anchor" href="#-errores-en-tiempo-de-ejecuci%c3%b3n-runtime-errors">#</a>
+</h2>
+<p>Los <strong>errores en tiempo de ejecución</strong> ocurren cuando la entrada del usuario no es la esperada.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;x is </span><span style="color:#e6db74">{</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>⚠ <strong>Problema</strong>: Si el usuario ingresa texto en lugar de un número, el programa genera un error:</p>
+<pre tabindex="0"><code>ValueError: invalid literal for int() with base 10: &#39;cat&#39;
+</code></pre><p>✅ <strong>Solución</strong>: Manejar los errores con <code>try</code> y <code>except</code>.</p>
+<hr>
+<h2 id="-uso-de-try-y-except">
+  🔹 Uso de <code>try</code> y <code>except</code>
+  <a class="anchor" href="#-uso-de-try-y-except">#</a>
+</h2>
+<p>Podemos usar <code>try</code> para manejar excepciones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;x is </span><span style="color:#e6db74">{</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x is not an integer&#34;</span>)
+</span></span></code></pre></div><p>✅ <strong>Ventaja</strong>: El programa no se detiene si el usuario ingresa un valor incorrecto.</p>
+<hr>
+<h2 id="-try-con-else">
+  🔹 <code>try</code> con <code>else</code>
+  <a class="anchor" href="#-try-con-else">#</a>
+</h2>
+<p>Si <code>try</code> se ejecuta sin errores, podemos usar <code>else</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;x is not an integer&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;x is </span><span style="color:#e6db74">{</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>🔹 <strong>Beneficio</strong>: <code>else</code> solo se ejecuta si no hubo error en <code>try</code>.</p>
+<hr>
+<h2 id="-mejorando-la-entrada-con-un-bucle">
+  🔹 Mejorando la Entrada con un Bucle
+  <a class="anchor" href="#-mejorando-la-entrada-con-un-bucle">#</a>
+</h2>
+<p>Podemos hacer que el programa siga pidiendo la entrada hasta que el usuario ingrese un número válido:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>  <span style="color:#75715e"># Sale del bucle si la entrada es válida</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;x is not an integer&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;x is </span><span style="color:#e6db74">{</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>✅ <strong>Beneficio</strong>: El usuario es re-promptado si ingresa un valor incorrecto.</p>
+<hr>
+<h2 id="-creando-una-función-para-obtener-un-entero">
+  🔹 Creando una Función para Obtener un Entero
+  <a class="anchor" href="#-creando-una-funci%c3%b3n-para-obtener-un-entero">#</a>
+</h2>
+<p>Podemos reutilizar la validación con una función:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_int</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;x is not an integer&#34;</span>)
+</span></span></code></pre></div><p>Llamamos a la función en <code>main()</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> get_int()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;x is </span><span style="color:#e6db74">{</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main()
+</span></span></code></pre></div><p>✅ <strong>Beneficio</strong>: Código más limpio y reutilizable.</p>
+<hr>
+<h2 id="-uso-de-pass">
+  🔹 Uso de <code>pass</code>
+  <a class="anchor" href="#-uso-de-pass">#</a>
+</h2>
+<p>Podemos omitir los mensajes de error y simplemente volver a solicitar la entrada:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_int</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>✅ <strong>Beneficio</strong>: No muestra mensajes de error, solo vuelve a preguntar.</p>
+<hr>
+<h2 id="-mejorando-la-función-con-un-parámetro-prompt">
+  🔹 Mejorando la Función con un Parámetro <code>prompt</code>
+  <a class="anchor" href="#-mejorando-la-funci%c3%b3n-con-un-par%c3%a1metro-prompt">#</a>
+</h2>
+<p>Podemos personalizar el mensaje que se muestra al usuario:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_int</span>(prompt):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> int(input(prompt))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>✅ <strong>Uso en <code>main()</code></strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> get_int(<span style="color:#e6db74">&#34;Enter a number: &#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;x is </span><span style="color:#e6db74">{</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main()
+</span></span></code></pre></div><p>🔹 <strong>Beneficio</strong>: Más flexibilidad al solicitar la entrada.</p>
+<hr>
+<h2 id="-resumen">
+  📌 Resumen
+  <a class="anchor" href="#-resumen">#</a>
+</h2>
+<p>✔️ <strong>Excepciones</strong> ocurren cuando algo sale mal en el código.
+✔️ <strong><code>try</code> y <code>except</code></strong> permiten manejar errores.
+✔️ <strong><code>else</code></strong> ejecuta código solo si <code>try</code> no falla.
+✔️ <strong>Bucle <code>while</code></strong> permite solicitar la entrada hasta que sea válida.
+✔️ <strong>Funciones</strong> como <code>get_int()</code> ayudan a reutilizar código.
+✔️ <strong><code>pass</code></strong> permite ignorar errores y volver a pedir datos.
+✔️ <strong>Parámetros en funciones</strong> permiten personalizar la entrada del usuario.</p>
+<p>🚀 <strong>Ahora puedes manejar errores en Python de manera eficiente!</strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-excepciones-en-python">🔹 Excepciones en Python</a></li>
+    <li><a href="#-errores-en-tiempo-de-ejecución-runtime-errors">🔹 Errores en Tiempo de Ejecución (Runtime Errors)</a></li>
+    <li><a href="#-uso-de-try-y-except">🔹 Uso de <code>try</code> y <code>except</code></a></li>
+    <li><a href="#-try-con-else">🔹 <code>try</code> con <code>else</code></a></li>
+    <li><a href="#-mejorando-la-entrada-con-un-bucle">🔹 Mejorando la Entrada con un Bucle</a></li>
+    <li><a href="#-creando-una-función-para-obtener-un-entero">🔹 Creando una Función para Obtener un Entero</a></li>
+    <li><a href="#-uso-de-pass">🔹 Uso de <code>pass</code></a></li>
+    <li><a href="#-mejorando-la-función-con-un-parámetro-prompt">🔹 Mejorando la Función con un Parámetro <code>prompt</code></a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
