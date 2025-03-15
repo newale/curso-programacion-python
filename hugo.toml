@@ -1,4 +1,6 @@
-baseURL = 'https://alejandro.earth/'
+baseURL = 'https://alejandro.earth/curso-programacion-python'
 languageCode = 'es-cl'
-title = 'My New Hugo Site'
+title = 'Programación en Python'
 theme="hugo-book"
+[params]
+  BookTheme = 'dark'

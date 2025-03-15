@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es-cl" dir="ltr">
+<head><script src="/curso-programacion-python/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=curso-programacion-python/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Semana 1: Variables y funciones
+  #
+
+
+  🖥️ CS50 Python - Lecture 0: Introducción a Python
+  #
+
+
+  📌 Contenido
+  #
+
+
+Creando Código con Python
+Funciones
+Bugs
+Mejorando tu Primer Programa en Python
+Variables
+Comentarios
+Pseudocódigo
+Mejoras en tu Programa
+Cadenas de Texto y Parámetros
+Números Enteros (int) y de Punto Flotante (float)
+Definiendo Funciones (def)
+Retorno de Valores
+Resumen
+
+
+
+  🔹 Creando Código con Python
+  #
+
+
+  📍 Configuración del Entorno
+  #
+
+Python se ejecuta a través de un editor de texto como VS Code. Para empezar:">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/curso-programacion-python/docs/course/variables-funciones/">
+  <meta property="og:site_name" content="Programación en Python">
+  <meta property="og:title" content="Semana 1: Variables y funciones">
+  <meta property="og:description" content="Semana 1: Variables y funciones # 🖥️ CS50 Python - Lecture 0: Introducción a Python # 📌 Contenido # Creando Código con Python Funciones Bugs Mejorando tu Primer Programa en Python Variables Comentarios Pseudocódigo Mejoras en tu Programa Cadenas de Texto y Parámetros Números Enteros (int) y de Punto Flotante (float) Definiendo Funciones (def) Retorno de Valores Resumen 🔹 Creando Código con Python # 📍 Configuración del Entorno # Python se ejecuta a través de un editor de texto como VS Code. Para empezar:">
+  <meta property="og:locale" content="es_cl">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Semana 1: Variables y funciones | Programación en Python</title>
+<link rel="icon" href="/curso-programacion-python/favicon.png" >
+<link rel="manifest" href="/curso-programacion-python/manifest.json">
+<link rel="canonical" href="http://localhost:1313/curso-programacion-python/docs/course/variables-funciones/">
+<link rel="stylesheet" href="/curso-programacion-python/book.min.2d7fec8e866046a7460a1cc86027535586803606a87c87da3098bcd8d5a2b62d.css" integrity="sha256-LX/sjoZgRqdGChzIYCdTVYaANgaofIfaMJi82NWiti0=" crossorigin="anonymous">
+  <script defer src="/curso-programacion-python/fuse.min.js"></script>
+  <script defer src="/curso-programacion-python/en.search.min.d47ea77737b92ff42d28c2d8372e039579dc22986e821e494d2eccefc3fc3e69.js" integrity="sha256-1H6ndze5L/QtKMLYNy4DlXncIphugh5JTS7M78P8Pmk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/curso-programacion-python/"><span>Programación en Python</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/curso-programacion-python/docs/course/variables-funciones/" class="active">Semana 1: Variables y funciones</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8b247b21fa73b37257009c71c539f738" class="toggle"  />
+    <label for="section-8b247b21fa73b37257009c71c539f738" class="flex justify-between">
+      <a role="button" class="">Modulo 2</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b0d906fbaa9d02d5c0774b5ebe3b2061" class="toggle"  />
+    <label for="section-b0d906fbaa9d02d5c0774b5ebe3b2061" class="flex justify-between">
+      <a role="button" class="">Modulo 3</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/curso-programacion-python/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/curso-programacion-python/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Semana 1: Variables y funciones</h3>
+
+  <label for="toc-control">
+    
+    <img src="/curso-programacion-python/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-creando-código-con-python">🔹 Creando Código con Python</a>
+      <ul>
+        <li><a href="#-configuración-del-entorno">📍 Configuración del Entorno</a></li>
+      </ul>
+    </li>
+    <li><a href="#-funciones-en-python">🔹 Funciones en Python</a>
+      <ul>
+        <li><a href="#-qué-son-las-funciones">📍 Qué son las funciones</a></li>
+        <li><a href="#-uso-de-la-función-print">📍 Uso de la función <code>print()</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-bugs-errores-en-el-código">🔹 Bugs (Errores en el Código)</a></li>
+    <li><a href="#-mejorando-tu-primer-programa-en-python">🔹 Mejorando tu Primer Programa en Python</a></li>
+    <li><a href="#-variables-en-python">🔹 Variables en Python</a></li>
+    <li><a href="#-comentarios-en-python">🔹 Comentarios en Python</a></li>
+    <li><a href="#-pseudocódigo">🔹 Pseudocódigo</a></li>
+    <li><a href="#-cadenas-de-texto-y-parámetros">🔹 Cadenas de Texto y Parámetros</a>
+      <ul>
+        <li><a href="#-concatenación-de-strings">📍 Concatenación de Strings</a></li>
+        <li><a href="#-formato-con-f-strings">📍 Formato con <code>f-strings</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-números-enteros-int-y-de-punto-flotante-float">🔹 Números Enteros (<code>int</code>) y de Punto Flotante (<code>float</code>)</a>
+      <ul>
+        <li><a href="#-uso-de-float-y-redondeo">📍 Uso de <code>float</code> y Redondeo</a></li>
+      </ul>
+    </li>
+    <li><a href="#-definiendo-funciones-def">🔹 Definiendo Funciones (<code>def</code>)</a>
+      <ul>
+        <li><a href="#-funciones-con-parámetros">📍 Funciones con Parámetros</a></li>
+      </ul>
+    </li>
+    <li><a href="#-retorno-de-valores-return">🔹 Retorno de Valores (<code>return</code>)</a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="semana-1-variables-y-funciones">
+  Semana 1: Variables y funciones
+  <a class="anchor" href="#semana-1-variables-y-funciones">#</a>
+</h1>
+<h1 id="-cs50-python---lecture-0-introducción-a-python">
+  🖥️ CS50 Python - Lecture 0: Introducción a Python
+  <a class="anchor" href="#-cs50-python---lecture-0-introducci%c3%b3n-a-python">#</a>
+</h1>
+<h2 id="-contenido">
+  📌 Contenido
+  <a class="anchor" href="#-contenido">#</a>
+</h2>
+<ul>
+<li>Creando Código con Python</li>
+<li>Funciones</li>
+<li>Bugs</li>
+<li>Mejorando tu Primer Programa en Python</li>
+<li>Variables</li>
+<li>Comentarios</li>
+<li>Pseudocódigo</li>
+<li>Mejoras en tu Programa</li>
+<li>Cadenas de Texto y Parámetros</li>
+<li>Números Enteros (<code>int</code>) y de Punto Flotante (<code>float</code>)</li>
+<li>Definiendo Funciones (<code>def</code>)</li>
+<li>Retorno de Valores</li>
+<li>Resumen</li>
+</ul>
+<hr>
+<h2 id="-creando-código-con-python">
+  🔹 Creando Código con Python
+  <a class="anchor" href="#-creando-c%c3%b3digo-con-python">#</a>
+</h2>
+<h3 id="-configuración-del-entorno">
+  📍 Configuración del Entorno
+  <a class="anchor" href="#-configuraci%c3%b3n-del-entorno">#</a>
+</h3>
+<p>Python se ejecuta a través de un <strong>editor de texto</strong> como <strong>VS Code</strong>. Para empezar:</p>
+<ol>
+<li>Abre <strong>VS Code</strong> y crea un archivo <code>hello.py</code>.</li>
+<li>Escribe el siguiente código en <code>hello.py</code>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello, world&#34;</span>)
+</span></span></code></pre></div></li>
+<li>Para ejecutar el programa, abre la terminal y escribe:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python hello.py
+</span></span></code></pre></div></li>
+<li>La salida será:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hello, world
+</span></span></code></pre></div></li>
+</ol>
+<p>Este es tu primer programa en Python. 🎉</p>
+<hr>
+<h2 id="-funciones-en-python">
+  🔹 Funciones en Python
+  <a class="anchor" href="#-funciones-en-python">#</a>
+</h2>
+<h3 id="-qué-son-las-funciones">
+  📍 Qué son las funciones
+  <a class="anchor" href="#-qu%c3%a9-son-las-funciones">#</a>
+</h3>
+<p>Una <strong>función</strong> es un bloque de código que realiza una tarea específica. Python tiene funciones predefinidas como <code>print()</code> y <code>input()</code>.</p>
+<h3 id="-uso-de-la-función-print">
+  📍 Uso de la función <code>print()</code>
+  <a class="anchor" href="#-uso-de-la-funci%c3%b3n-print">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello, world&#34;</span>)
+</span></span></code></pre></div><ul>
+<li><code>print()</code> es una función que muestra un mensaje en la pantalla.</li>
+<li>El <strong>argumento</strong> dentro de <code>print()</code> es el texto que queremos imprimir.</li>
+</ul>
+<hr>
+<h2 id="-bugs-errores-en-el-código">
+  🔹 Bugs (Errores en el Código)
+  <a class="anchor" href="#-bugs-errores-en-el-c%c3%b3digo">#</a>
+</h2>
+<p>Los errores son parte del aprendizaje. Ejemplo de un error en Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello, world&#34;</span>
+</span></span></code></pre></div><p>🔹 <strong>Error:</strong> Falta el paréntesis de cierre <code>)</code>. Python indicará el error en la terminal.</p>
+<hr>
+<h2 id="-mejorando-tu-primer-programa-en-python">
+  🔹 Mejorando tu Primer Programa en Python
+  <a class="anchor" href="#-mejorando-tu-primer-programa-en-python">#</a>
+</h2>
+<p>Podemos personalizar el programa para que el usuario ingrese su nombre:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello,&#34;</span>, name)
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li><code>input()</code> solicita información al usuario.</li>
+<li>La respuesta se almacena en la variable <code>name</code>.</li>
+<li><code>print(&quot;hello,&quot;, name)</code> imprime el saludo con el nombre ingresado.</li>
+</ul>
+<hr>
+<h2 id="-variables-en-python">
+  🔹 Variables en Python
+  <a class="anchor" href="#-variables-en-python">#</a>
+</h2>
+<p>Una <strong>variable</strong> es un contenedor para almacenar un valor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Carlos&#34;</span>
+</span></span><span style="display:flex;"><span>print(name)
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li><code>name</code> almacena el texto &ldquo;Carlos&rdquo;.</li>
+<li><code>print(name)</code> muestra el valor de <code>name</code>.</li>
+</ul>
+<hr>
+<h2 id="-comentarios-en-python">
+  🔹 Comentarios en Python
+  <a class="anchor" href="#-comentarios-en-python">#</a>
+</h2>
+<p>Los comentarios ayudan a documentar el código y no afectan la ejecución:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Este es un comentario</span>
+</span></span><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello,&#34;</span>, name)  <span style="color:#75715e"># Saludo al usuario</span>
+</span></span></code></pre></div><hr>
+<h2 id="-pseudocódigo">
+  🔹 Pseudocódigo
+  <a class="anchor" href="#-pseudoc%c3%b3digo">#</a>
+</h2>
+<p>El <strong>pseudocódigo</strong> ayuda a planificar el programa antes de escribir el código real:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#66d9ef">1.</span> Pedir el nombre del usuario
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">2.</span> Guardar el nombre en una variable
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">3.</span> Imprimir un saludo con el nombre
+</span></span></code></pre></div><p>🔹 <strong>Ejemplo en Python:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Pedir el nombre</span>
+</span></span><span style="display:flex;"><span>name <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What&#39;s your name? &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Imprimir el saludo</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello,&#34;</span>, name)
+</span></span></code></pre></div><hr>
+<h2 id="-cadenas-de-texto-y-parámetros">
+  🔹 Cadenas de Texto y Parámetros
+  <a class="anchor" href="#-cadenas-de-texto-y-par%c3%a1metros">#</a>
+</h2>
+<p>Una <strong>cadena de texto</strong> es una secuencia de caracteres. Podemos formatear cadenas de varias maneras:</p>
+<h3 id="-concatenación-de-strings">
+  📍 Concatenación de Strings
+  <a class="anchor" href="#-concatenaci%c3%b3n-de-strings">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Carlos&#34;</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;hello, &#34;</span> <span style="color:#f92672">+</span> name)
+</span></span></code></pre></div><h3 id="-formato-con-f-strings">
+  📍 Formato con <code>f-strings</code>
+  <a class="anchor" href="#-formato-con-f-strings">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Carlos&#34;</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;hello, </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>🔹 <strong>Ventajas de <code>f-strings</code>:</strong></p>
+<ul>
+<li>Más legible y eficiente.</li>
+<li>Soporta expresiones dentro de <code>{}</code>.</li>
+</ul>
+<hr>
+<h2 id="-números-enteros-int-y-de-punto-flotante-float">
+  🔹 Números Enteros (<code>int</code>) y de Punto Flotante (<code>float</code>)
+  <a class="anchor" href="#-n%c3%bameros-enteros-int-y-de-punto-flotante-float">#</a>
+</h2>
+<p>Podemos realizar operaciones matemáticas con <code>int</code> y <code>float</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;What&#39;s y? &#34;</span>))
+</span></span><span style="display:flex;"><span>print(x <span style="color:#f92672">+</span> y)
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li><code>int(input())</code> convierte la entrada del usuario a un número entero.</li>
+<li>Se suman <code>x</code> e <code>y</code>.</li>
+</ul>
+<h3 id="-uso-de-float-y-redondeo">
+  📍 Uso de <code>float</code> y Redondeo
+  <a class="anchor" href="#-uso-de-float-y-redondeo">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> float(input(<span style="color:#e6db74">&#34;What&#39;s x? &#34;</span>))
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> float(input(<span style="color:#e6db74">&#34;What&#39;s y? &#34;</span>))
+</span></span><span style="display:flex;"><span>z <span style="color:#f92672">=</span> round(x <span style="color:#f92672">/</span> y, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>print(z)
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li><code>float()</code> permite números decimales.</li>
+<li><code>round(x / y, 2)</code> redondea el resultado a 2 decimales.</li>
+</ul>
+<hr>
+<h2 id="-definiendo-funciones-def">
+  🔹 Definiendo Funciones (<code>def</code>)
+  <a class="anchor" href="#-definiendo-funciones-def">#</a>
+</h2>
+<p>Las funciones permiten reutilizar código:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;hello, world&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello()
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li><code>def hello():</code> define una función.</li>
+<li><code>hello()</code> llama a la función.</li>
+</ul>
+<h3 id="-funciones-con-parámetros">
+  📍 Funciones con Parámetros
+  <a class="anchor" href="#-funciones-con-par%c3%a1metros">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>(name):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;hello,&#34;</span>, name)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello(<span style="color:#e6db74">&#34;Carlos&#34;</span>)
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li>La función <code>hello()</code> recibe <code>name</code> como parámetro.</li>
+</ul>
+<hr>
+<h2 id="-retorno-de-valores-return">
+  🔹 Retorno de Valores (<code>return</code>)
+  <a class="anchor" href="#-retorno-de-valores-return">#</a>
+</h2>
+<p>Las funciones pueden devolver valores:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">square</span>(n):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">*</span> n
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(square(<span style="color:#ae81ff">4</span>))
+</span></span></code></pre></div><p>🔹 <strong>Explicación:</strong></p>
+<ul>
+<li><code>return</code> devuelve el resultado de <code>n * n</code>.</li>
+</ul>
+<hr>
+<h2 id="-resumen">
+  📌 Resumen
+  <a class="anchor" href="#-resumen">#</a>
+</h2>
+<p>✔️ <strong>Funciones:</strong> Bloques de código reutilizables.
+✔️ <strong>Bugs:</strong> Errores en el código.
+✔️ <strong>Variables:</strong> Almacenan valores.
+✔️ <strong>Comentarios:</strong> Notas en el código.
+✔️ <strong>Pseudocódigo:</strong> Planificación del programa.
+✔️ <strong>Strings:</strong> Secuencias de texto.
+✔️ <strong>int y float:</strong> Números enteros y decimales.
+✔️ <strong><code>def</code> y <code>return</code>:</strong> Crear y retornar valores en funciones.</p>
+<p>🚀 <strong>Ahora puedes escribir programas más complejos en Python!</strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-contenido">📌 Contenido</a></li>
+    <li><a href="#-creando-código-con-python">🔹 Creando Código con Python</a>
+      <ul>
+        <li><a href="#-configuración-del-entorno">📍 Configuración del Entorno</a></li>
+      </ul>
+    </li>
+    <li><a href="#-funciones-en-python">🔹 Funciones en Python</a>
+      <ul>
+        <li><a href="#-qué-son-las-funciones">📍 Qué son las funciones</a></li>
+        <li><a href="#-uso-de-la-función-print">📍 Uso de la función <code>print()</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-bugs-errores-en-el-código">🔹 Bugs (Errores en el Código)</a></li>
+    <li><a href="#-mejorando-tu-primer-programa-en-python">🔹 Mejorando tu Primer Programa en Python</a></li>
+    <li><a href="#-variables-en-python">🔹 Variables en Python</a></li>
+    <li><a href="#-comentarios-en-python">🔹 Comentarios en Python</a></li>
+    <li><a href="#-pseudocódigo">🔹 Pseudocódigo</a></li>
+    <li><a href="#-cadenas-de-texto-y-parámetros">🔹 Cadenas de Texto y Parámetros</a>
+      <ul>
+        <li><a href="#-concatenación-de-strings">📍 Concatenación de Strings</a></li>
+        <li><a href="#-formato-con-f-strings">📍 Formato con <code>f-strings</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#-números-enteros-int-y-de-punto-flotante-float">🔹 Números Enteros (<code>int</code>) y de Punto Flotante (<code>float</code>)</a>
+      <ul>
+        <li><a href="#-uso-de-float-y-redondeo">📍 Uso de <code>float</code> y Redondeo</a></li>
+      </ul>
+    </li>
+    <li><a href="#-definiendo-funciones-def">🔹 Definiendo Funciones (<code>def</code>)</a>
+      <ul>
+        <li><a href="#-funciones-con-parámetros">📍 Funciones con Parámetros</a></li>
+      </ul>
+    </li>
+    <li><a href="#-retorno-de-valores-return">🔹 Retorno de Valores (<code>return</code>)</a></li>
+    <li><a href="#-resumen">📌 Resumen</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
